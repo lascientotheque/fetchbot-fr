@@ -1,0 +1,32 @@
+format: jb-book
+root: Overview
+parts:
+- caption: Reconnaissance d'images
+  numbered: true
+  chapters:
+  - file: 1_Image_Recognition/Image_Recognition/Image_Recognition
+  - file: 1_Image_Recognition/Image_Recognition_Scratch/Image_Recognition_Scratch
+  - file: 1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python
+- caption: Construction du rover
+  numbered: true
+  chapters:
+  - file: 2_Rover_Building/Rover_Building/Rover_Building
+  - file: 2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch
+  - file: 2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python
+- caption: Contrôle intelligent du rover
+  numbered: true
+  chapters:
+  - file: 3_Rover_Camera_Control/Camera_Setup/Camera_Setup
+  - file: 3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch
+  - file: 3_Rover_Camera_Control/FetchBot_Control_IR_Python/FetchBot_Control_IR_Python
+- caption: Ressources complémentaires
+  numbered: true
+  chapters:
+  - file: 4_Additional_Resources/Raspberry_Pi/Raspberry_Pi
+  - file: 4_Additional_Resources/Python_Notebook
+  - file: 4_Additional_Resources/Fetch_Mission_Engineer
+  - file: 4_Additional_Resources/Remote_Control/Remote_Control
+  - file: 4_Additional_Resources/Rover_Alternatives
+  - file: 4_Additional_Resources/FAQ
+  - file: 4_Additional_Resources/Troubleshooting
+
