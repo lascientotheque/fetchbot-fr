@@ -1,0 +1,614 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FetchBot: Rover martien intelligent &#8212; Explore le sol martien avec le FetchBot!</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/gtag_0.js"></script>
+    <script src="_static/gtag_1.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/fetch-rover-small.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Reconnaissance d’images avec la Teachable Machine" href="1_Image_Recognition/Image_Recognition/Image_Recognition.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/fetch-rover-small.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Explore le sol martien avec le FetchBot!</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   FetchBot: Rover martien intelligent
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reconnaissance d'images
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Image_Recognition/Image_Recognition/Image_Recognition.html">
+   1. Reconnaissance d’images avec la Teachable Machine
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Image_Recognition/Image_Recognition_Scratch/Image_Recognition_Scratch.html">
+   2. Reconnaissance d’images avec Scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.html">
+   3. Reconnaissance d’images avec Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Construction du rover
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Rover_Building/Rover_Building/Rover_Building.html">
+   4. Construction du FetchBot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch.html">
+   5. Contrôle du FetchBot avec Scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python.html">
+   6. Contrôle du FetchBot avec Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contrôle intelligent du rover
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html">
+   7. MarsCamBot avec caméra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html">
+   8. Contrôle du FetchBot et reconnaissance d’images avec Scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Rover_Camera_Control/FetchBot_Control_IR_Python/FetchBot_Control_IR_Python.html">
+   9. Contrôle du FetchBot et reconnaissance d’images avec Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ressources complémentaires
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html">
+   10. Raspberry Pi: Prise en main et préparation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Additional_Resources/Python_Notebook.html">
+   11. Python Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Additional_Resources/Fetch_Mission_Engineer.html">
+   12. Ingénieur mission Fetch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Additional_Resources/Remote_Control/Remote_Control.html">
+   13. Télécommande sur page Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Additional_Resources/Rover_Alternatives.html">
+   14. Alternatives de rover
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Additional_Resources/FAQ.html">
+   15. FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Additional_Resources/Troubleshooting.html">
+   16. Dépannage
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Overview.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lascientotheque/ai-rover-fr"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lascientotheque/ai-rover-fr/issues/new?title=Issue%20on%20page%20%2FOverview.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/lascientotheque/ai-rover-fr/edit/main/Overview.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#public-cible">
+   Public ciblé
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivations-des-activites">
+   Motivations des activités
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apercu">
+   Aperçu
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reconnaissance-d-images">
+     1. Reconnaissance d’images
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#construction-du-fetchbot">
+     2. Construction du FetchBot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controle-intelligent-du-rover">
+     3. Contrôle intelligent du rover
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectifs-pedagogiques">
+   Objectifs pédagogiques
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#referentiel-fmttn">
+     1. Référentiel FMTTN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#referentiel-mit-ai-ethics">
+     2. Référentiel MIT AI Ethics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="fetchbot-rover-martien-intelligent">
+<h1>FetchBot: Rover martien intelligent<a class="headerlink" href="#fetchbot-rover-martien-intelligent" title="Permalink to this headline">¶</a></h1>
+<p>Construis un rover martien avec une carte Raspberry Pi et programme-le avec des techniques d’intelligence artificielle de reconnaissance d’images pour aller rechercher de précieux tubes sur Mars en 2026!</p>
+<div align="center">
+<h4>Le rover martien Fetch en 2026 à la recherche des tubes laissés sur mars en 2022 par le rover Perseverance - <a href="https://mars.nasa.gov/resources/24761/fetch-rover-approaching-sample-tubes-artists-concept/">Vue d'artiste</a>:</h4> 
+</div>
+<p><a class="reference internal" href="_images/fetch-rover.jpg"><img alt="drawing" src="_images/fetch-rover.jpg" style="width: 600px;" /></a></img></p>
+<p><strong>! En cours de construction !</strong></p>
+<div class="section" id="public-cible">
+<h2>Public ciblé<a class="headerlink" href="#public-cible" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A partir de <strong>10 ans</strong> pour les activités de reconnaissance d’images, construction du robot, et <strong>programmation en Scratch</strong>.</p></li>
+<li><p>A partir de <strong>14 ans</strong> pour les activités de reconnaissance d’images, construction du robot, et <strong>programmation en Python</strong>.</p></li>
+</ul>
+</div>
+<div class="section" id="motivations-des-activites">
+<h2>Motivations des activités<a class="headerlink" href="#motivations-des-activites" title="Permalink to this headline">¶</a></h2>
+<p>En 2026, l’Agence Spatiale Européenne (ESA) et la National Aeronautics and Space Administration (NASA) enverront <a class="reference external" href="https://fr.wikipedia.org/wiki/Mars_Sample_Return#Mission_Sample_Retrieval_Lander_(SRL)">un rover sur Mars avec pour mission de récuperer des tubes contenant des échantillons de sol martien</a>. Le rover, qui s’appelle Fetch (qui signifie ‘récupérer’ en anglais), devra être capable de se déplacer, de retrouver les tubes, et de les récupérer de la façon la plus autonome possible. Pour cela, Fetch utilisera des techniques d’intelligence artificielle, notamment de reconnaissance d’images pour trouver de façon autonome les tubes déposés sur le sol par le rover <a class="reference external" href="https://fr.wikipedia.org/wiki/Exploration_de_Mars_par_Perseverance">Perseverance</a> en 2022.</p>
+<p>Les activités proposées ici visent à faire découvrir comment concevoir un système d’intelligence artificielle pour de la reconnaissance d’images, et comment permettre à un rover martien de l’utiliser.</p>
+</div>
+<div class="section" id="apercu">
+<h2>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
+<p>Les activités se décomposent en trois parties: Reconnaissance d’images, construction du rover, et contrôle intelligent du rover.</p>
+<div class="section" id="reconnaissance-d-images">
+<h3>1. Reconnaissance d’images<a class="headerlink" href="#reconnaissance-d-images" title="Permalink to this headline">¶</a></h3>
+<p>Tout d’abord, nous expliquons comment créer <strong>un modèle prédictif pour la reconnaissance d’image</strong>. On utilisera pour cela la <em><a class="reference external" href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></em>. On montrera ensuite comment le modèle peut être <strong>utilisé dans un programme de façon simple avec Scratch ou en Python</strong> pour retrouver des tubes sur un sol martien.</p>
+<p>Ce sont les activités 1 à 3:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Numéro activité</p></th>
+<th class="text-align:left head"><p>Activité</p></th>
+<th class="text-align:left head"><p>Age</p></th>
+<th class="text-align:left head"><p>Temps estimé</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>1</p></td>
+<td class="text-align:left"><p>Reconnaissance d’images avec la Teachable Machine</p></td>
+<td class="text-align:left"><p>10-18</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>2</p></td>
+<td class="text-align:left"><p>Reconnaissance d’images avec Scratch</p></td>
+<td class="text-align:left"><p>10-14</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>3</p></td>
+<td class="text-align:left"><p>Reconnaissance d’images avec Python</p></td>
+<td class="text-align:left"><p>14-18</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+</tbody>
+</table>
+<p>Exemple de l’interface Teachable Machine que vous utiliserez pour apprendre à une IA à reconnaître des images (par exemple retrouver des tubes sur un sol martien):</p>
+<a class="reference internal image-reference" href="_images/TM_5_tube_other_fr.jpg"><img alt="_images/TM_5_tube_other_fr.jpg" src="_images/TM_5_tube_other_fr.jpg" style="width: 600px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les activités 2 et 3 sont indépendantes, mais nécessitent d’avoir fait l’activité 1 pour créer un modèle de reconnaissance d’images.</p>
+</div>
+</div>
+<div class="section" id="construction-du-fetchbot">
+<h3>2. Construction du FetchBot<a class="headerlink" href="#construction-du-fetchbot" title="Permalink to this headline">¶</a></h3>
+<p>La deuxième partie consistera à <strong>construire un rover</strong>, appelé ‘FetchBot’, et à programmer des déplacements. Une carte programmable <a class="reference external" href="https://www.raspberrypi.com/products/raspberry-pi-3-model-b/">Raspberry Pi</a> et le <a class="reference external" href="https://camjam.me/?page_id=1035">CamJam EduKit</a> seront utilisés (Le CamJam EduKit fournit toutes les pièces nécessaires à la construction du rover: Les roues, les moteurs, et la connectique). L’activité est prévue pour être <strong>simple, relativement abordable financièrement</strong> (Environ 80 euros en tout pour un CamJam EduKit, une carte programmable Raspberry Pi, et une caméra), et offrant une <strong>large liberté dans la ‘personnalisation’ de l’apparence du rover</strong>.</p>
+<p>Ce sont les activités 4 à 6:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Numéro activité</p></th>
+<th class="text-align:left head"><p>Activité</p></th>
+<th class="text-align:left head"><p>Age</p></th>
+<th class="text-align:left head"><p>Temps estimé</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>4</p></td>
+<td class="text-align:left"><p>Construction du FetchBot</p></td>
+<td class="text-align:left"><p>10-18</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>5</p></td>
+<td class="text-align:left"><p>Contrôle du FetchBot avec Scratch</p></td>
+<td class="text-align:left"><p>10-14</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>6</p></td>
+<td class="text-align:left"><p>Contrôle du FetchBot avec Python</p></td>
+<td class="text-align:left"><p>14-18</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+</tbody>
+</table>
+<p>Exemples de rovers FetchBot construits un chassis en carton, en impression 3D, ou en bois:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="text-align:right head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><a class="reference internal" href="_images/CamJam_Box.jpg"><img alt="_images/CamJam_Box.jpg" src="_images/CamJam_Box.jpg" style="width: 230px;" /></a></p></td>
+<td><p><a class="reference internal" href="_images/CamJam_3DPrint.jpg"><img alt="_images/CamJam_3DPrint.jpg" src="_images/CamJam_3DPrint.jpg" style="width: 300px;" /></a></p></td>
+<td class="text-align:right"><p><a class="reference internal" href="_images/CamJam_Wood.png"><img alt="_images/CamJam_Wood.png" src="_images/CamJam_Wood.png" style="width: 350px;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><a href="https://www.youtube.com/watch?v=LJDEV7rGwaM">Chassis en carton (avec la boîte du CamJam EduKit)</a></p></td>
+<td><p><a href="https://camjam.me/?page_id=1035">Chassis en impression 3D</a></p></td>
+<td class="text-align:right"><p><a href="https://www.youtube.com/watch?v=LKTpj8QHWEc">Chassis en bois</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les activités 5 et 6 sont indépendantes, mais nécessitent d’avoir fait l’activité 4 et d’avoir construit le rover.</p>
+</div>
+</div>
+<div class="section" id="controle-intelligent-du-rover">
+<h3>3. Contrôle intelligent du rover<a class="headerlink" href="#controle-intelligent-du-rover" title="Permalink to this headline">¶</a></h3>
+<p>La troisième partie consistera à <strong>utiliser le modèle de reconnaissance d’image sur le rover</strong>, pour permettre à celui-ci de retrouver de façon autonome des tubes dans son environnement. Nous proposons un sol martien à imprimer, de façon à rendre l’activité proche de ce qu’un rover martien pourra voir une fois à destination!</p>
+<p>Ce sont les activités 7 à 9:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Numéro activité</p></th>
+<th class="text-align:left head"><p>Activité</p></th>
+<th class="text-align:left head"><p>Age</p></th>
+<th class="text-align:left head"><p>Temps estimé</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>7</p></td>
+<td class="text-align:left"><p>FetchBot avec Caméra</p></td>
+<td class="text-align:left"><p>10-18</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>8</p></td>
+<td class="text-align:left"><p>Contrôle du FetchBot et reconnaissance d’images avec Scratch (Adacraft)</p></td>
+<td class="text-align:left"><p>10-14</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>9</p></td>
+<td class="text-align:left"><p>Contrôle du FetchBot et reconnaissance d’images avec Python</p></td>
+<td class="text-align:left"><p>14-18</p></td>
+<td class="text-align:left"><p>2-4h</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les activités 8 et 9 sont indépendantes, mais nécessitent d’avoir fait les activités précédentes (reconnaissance d’images, construction du rover, et d’avoir monté la caméra).</p>
+</div>
+</div>
+</div>
+<div class="section" id="objectifs-pedagogiques">
+<h2>Objectifs pédagogiques<a class="headerlink" href="#objectifs-pedagogiques" title="Permalink to this headline">¶</a></h2>
+<p>Les activités permettent d’appréhender et s’approprier les notions d’algorithmes, de logigrammes, et les concepts de bases</p>
+<ul class="simple">
+<li><p>de la programmation (conditions, boucles, variables, objets),</p></li>
+<li><p>de robotique (construction d’un rover, câblage d’une carte programmable avec des moteurs et une batterie),</p></li>
+<li><p>de l’intelligence artificielle (entrainer un modèle de prédiction avec des exemples, utiliser le modèle dans un programme).</p></li>
+</ul>
+<div class="section" id="referentiel-fmttn">
+<h3>1. Référentiel FMTTN<a class="headerlink" href="#referentiel-fmttn" title="Permalink to this headline">¶</a></h3>
+<p>Création de contenus:</p>
+<ul class="simple">
+<li><p>Savoir: Programmation et logigrammes.</p></li>
+<li><p>Savoir-Faire: Lire un algorithme simple, Écrire un algorithme simple, Lire un programme simple, Écrire un programme simple, Identifier des éléments relatifs à la programmation et aux logigrammes.</p></li>
+<li><p>Compétences: Concevoir un algorithme pour résoudre un problème simple, Concevoir un programme pour résoudre un problème, Porter un regard critique sur les raisons d’être et les conséquences induites par un algorithme.</p></li>
+</ul>
+</div>
+<div class="section" id="referentiel-mit-ai-ethics">
+<h3>2. Référentiel MIT AI Ethics<a class="headerlink" href="#referentiel-mit-ai-ethics" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.google.com/document/d/1pQ8D4iDnwKoiveJOZZgy6SLvgDD1nYQOPFUwyuBpEic/edit">Un programme d’études sur l’éthique de l’intelligence artificielle pour les élèves de collège</a> (Page 7)</p>
+<ul class="simple">
+<li><p>1 - Comprendre les mécanismes de base des systèmes d’intelligence artificielle.</p></li>
+<li><p>1.a. Connaître trois parties d’un algorithme : entrée, étapes pour changer l’entrée, sortie.</p></li>
+<li><p>1.b. Savoir que l’intelligence artificielle est un type d’algorithme spécifique et comporte trois parties spécifiques : ensemble de données, algorithme d’apprentissage et prédiction.</p></li>
+<li><p>1.c Comprendre le problème de la classification dans le contexte de l’apprentissage automatique supervisé. Comprendre comment la quantité de données d’entraînement affecte la précision et la robustesse d’un modèle d’apprentissage automatique supervisé.</p></li>
+<li><p>2.c. Connaître le terme « biais algorithmique » dans le contexte de la classification.</p>
+<ul>
+<li><p>Comprendre l’effet des données d’entraînement sur la précision d’un système d’apprentissage automatique.</p></li>
+<li><p>Reconnaître que les humains ont le pouvoir de conserver des ensembles de données de formation.</p></li>
+<li><p>Comprendre comment la composition des données d’entraînement affecte “le résultat”  d’un système d’apprentissage automatique supervisé.</p></li>
+</ul>
+</li>
+<li><p>4.b. Identifier les ensembles de données nécessaires pour former un système d’IA pour atteindre cet objectif.</p></li>
+</ul>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="1_Image_Recognition/Image_Recognition/Image_Recognition.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Reconnaissance d’images avec la Teachable Machine</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By <a href="https://www.lascientotheque.be/">La Scientothèque</a>, 2022.<br/>
+        
+          <div class="extra_footer">
+            <p>
+License: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

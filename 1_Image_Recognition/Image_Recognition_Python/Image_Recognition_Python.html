@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Reconnaissance d’images avec Python &#8212; Explore le sol martien avec le FetchBot!</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/gtag_0.js"></script>
+    <script src="../../_static/gtag_1.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/fetch-rover-small.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Construction du FetchBot" href="../../2_Rover_Building/Rover_Building/Rover_Building.html" />
+    <link rel="prev" title="2. Reconnaissance d’images avec Scratch" href="../Image_Recognition_Scratch/Image_Recognition_Scratch.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/fetch-rover-small.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Explore le sol martien avec le FetchBot!</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Overview.html">
+   FetchBot: Rover martien intelligent
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reconnaissance d'images
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Image_Recognition/Image_Recognition.html">
+   1. Reconnaissance d’images avec la Teachable Machine
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Image_Recognition_Scratch/Image_Recognition_Scratch.html">
+   2. Reconnaissance d’images avec Scratch
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Reconnaissance d’images avec Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Construction du rover
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html">
+   4. Construction du FetchBot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch.html">
+   5. Contrôle du FetchBot avec Scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python.html">
+   6. Contrôle du FetchBot avec Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contrôle intelligent du rover
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html">
+   7. MarsCamBot avec caméra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html">
+   8. Contrôle du FetchBot et reconnaissance d’images avec Scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../3_Rover_Camera_Control/FetchBot_Control_IR_Python/FetchBot_Control_IR_Python.html">
+   9. Contrôle du FetchBot et reconnaissance d’images avec Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ressources complémentaires
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html">
+   10. Raspberry Pi: Prise en main et préparation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_Additional_Resources/Python_Notebook.html">
+   11. Python Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_Additional_Resources/Fetch_Mission_Engineer.html">
+   12. Ingénieur mission Fetch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_Additional_Resources/Remote_Control/Remote_Control.html">
+   13. Télécommande sur page Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_Additional_Resources/Rover_Alternatives.html">
+   14. Alternatives de rover
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_Additional_Resources/FAQ.html">
+   15. FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_Additional_Resources/Troubleshooting.html">
+   16. Dépannage
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lascientotheque/ai-rover-fr"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lascientotheque/ai-rover-fr/issues/new?title=Issue%20on%20page%20%2F1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/lascientotheque/ai-rover-fr/edit/main/1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lascientotheque/ai-rover-fr/main?urlpath=tree/1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/lascientotheque/ai-rover-fr/blob/main/1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-tortue-python">
+   3.1. La tortue Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cree-la-tortue">
+     3.1.1. Crée la tortue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#teste-le-code">
+     3.1.2. Teste le code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dirige-la-tortue">
+     3.1.3. Dirige la tortue
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prendre-une-image-avec-la-camera">
+   3.2. Prendre une image avec la caméra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-de-l-image">
+   3.3. Classification de l’image
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entrainement-du-classificateur">
+     3.3.1. Entraînement du classificateur
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     3.3.2. Classification de l’image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#controle-la-tortue-avec-la-reconnaissance-d-image">
+   3.4. Contrôle la tortue avec la reconnaissance d’image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aller-plus-loin">
+   3.5. Aller plus loin
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ressources-utiles">
+   3.6. Ressources utiles
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="reconnaissance-d-images-avec-python">
+<span id="image-recognition-python"></span><h1><span class="section-number">3. </span>Reconnaissance d’images avec Python<a class="headerlink" href="#reconnaissance-d-images-avec-python" title="Permalink to this headline">¶</a></h1>
+<p><strong>Objectif:</strong> Déplacer la tortue Python avec de la reconnaissance d’images.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="text-align:left head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Âge</p></td>
+<td class="text-align:left"><p>14 à 18 ans</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Notions abordées</p></td>
+<td class="text-align:left"><p>Intelligence artificielle, classification d’images, programmation avec Python, condition, boucle.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Durée</p></td>
+<td class="text-align:left"><p>4 heures</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Dispositif pédagogiques</p></td>
+<td class="text-align:left"><p>Par groupe de 2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Matériel</p></td>
+<td class="text-align:left"><p>Un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Prérequis</p></td>
+<td class="text-align:left"><p>1. Connaissances de bases de Python et <a class="reference internal" href="../../4_Additional_Resources/Python_Notebook.html#python-notebook"><span class="std std-ref">Annexe x: utilisation de Python dans un notebook</span></a><br> 2. Avoir créé un modèle de reconnaissance d’image avec la Teachable Machine de Google <a class="reference internal" href="../Image_Recognition/Image_Recognition.html#image-recognition"><span class="std std-ref">(Activité 1 - Reconnaissance d’images avec la Teachable Machine)</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="la-tortue-python">
+<h2><span class="section-number">3.1. </span>La tortue Python<a class="headerlink" href="#la-tortue-python" title="Permalink to this headline">¶</a></h2>
+<p>Commence par utiliser la tortue Python. La tortue Python est une sorte de robot que tu peux déplacer dans une fenêtre graphique.</p>
+<div class="section" id="cree-la-tortue">
+<h3><span class="section-number">3.1.1. </span>Crée la tortue<a class="headerlink" href="#cree-la-tortue" title="Permalink to this headline">¶</a></h3>
+<p>Pour permettre à Python d’utiliser la tortue, il faut d’abord importer la librairie <code class="docutils literal notranslate"><span class="pre">turtle</span></code> (qui veut dire tortue en anglais), et ensuite executer la commande <code class="docutils literal notranslate"><span class="pre">screen</span> <span class="pre">=</span> <span class="pre">turtle.getscreen()</span></code> pour ouvrir la fenêtre graphique.</p>
+<p>Ouvre l’éditeur Python Thonny, et créé un nouveau fichier en cliquant sur l’icône ‘+’. Copie le code ci-dessous:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import turtle library</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+<span class="c1"># Open screen and display turtle</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">getscreen</span><span class="p">()</span>
+<span class="c1"># Create a turtle object</span>
+<span class="n">my_turtle</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Remarque: Tous les textes après les ‘#” sont des commentaires, et tu n’es pas obligé de les recopier. Ils aident cependant à comprendre ce que fait le code.</p>
+<p>Sauvegarde le fichier sous le nom ‘1-turtle.py’.</p>
+</div>
+<div class="section" id="teste-le-code">
+<h3><span class="section-number">3.1.2. </span>Teste le code<a class="headerlink" href="#teste-le-code" title="Permalink to this headline">¶</a></h3>
+<p>Tu es maintenant prêt à exécuter le code. Clique sur le bouton ‘Run’ de l’éditeur Thonny. Si tu constates que le code ne s’exécute pas correctement, il se peut qu’il y ait une erreur dans le code que tu as écrit.</p>
+<p>Tu devrais maintenant voir une fenêtre s’ouvrir, avec la tortue qui est placée au centre. La tortue est représentée par une tête de flèche.</p>
+<a class="reference internal image-reference" href="../../_images/Turtle_1_Screen.jpg"><img alt="drawing" src="../../_images/Turtle_1_Screen.jpg" style="width: 400px;" /></a>
+</div>
+<div class="section" id="dirige-la-tortue">
+<h3><span class="section-number">3.1.3. </span>Dirige la tortue<a class="headerlink" href="#dirige-la-tortue" title="Permalink to this headline">¶</a></h3>
+<p>Tu peux diriger la tortue avec les commandes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">my_turtle.forward(x)</span></code>: Pour avancer de x pixels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_turtle.backward(x)</span></code>: Pour reculer de x pixels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_turtle.right(x)</span></code>: tourner à droite de x degrés</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_turtle.left(x)</span></code>: tourner à gauche de x degrés</p></li>
+</ul>
+<p>Par exemple, pour avancer de 100 pixels, tourner de 90 degrés, puis avancer de 100 pixels, tu peux utiliser le code suivant:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import turtle library</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+<span class="c1"># Open screen and display turtle</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">getscreen</span><span class="p">()</span>
+<span class="c1"># Create a turtle object</span>
+<span class="n">my_turtle</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="n">my_turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">my_turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">my_turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Copie ce code dans l’éditeur Thonny et exécute-le. Tu devrais voir la tortue suivre le trajet correspondant:</p>
+<a class="reference internal image-reference" href="../../_images/Turtle_1.gif"><img alt="drawing" src="../../_images/Turtle_1.gif" style="width: 400px;" /></a>
+<p>Quel code pourrais-tu utiliser pour faire faire un carré à la tortue?</p>
+</div>
+</div>
+<div class="section" id="prendre-une-image-avec-la-camera">
+<h2><span class="section-number">3.2. </span>Prendre une image avec la caméra<a class="headerlink" href="#prendre-une-image-avec-la-camera" title="Permalink to this headline">¶</a></h2>
+<p>Le code suivant te permet de prendre une image avec la caméra. Exécute-le pour voir l’image prise de la Webcam apparaître.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
+<span class="kn">import</span> <span class="nn">cv2</span> <span class="c1"># cv2 is used to take image from the camera</span>
+<span class="kn">import</span> <span class="nn">myfunctions</span> <span class="c1"># myfunctions helps for taking picture and making predictions</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="c1"># PIL is used to deal with images</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># time is used for making the computer wait</span>
+
+<span class="c1"># Get camera object</span>
+<span class="n">camera_object</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Take a picture from the camera</span>
+<span class="n">picture_rgb</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">take_picture</span><span class="p">(</span><span class="n">camera_object</span><span class="p">)</span>
+
+<span class="c1"># Display picture</span>
+<span class="n">picture_as_image_object</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">picture_rgb</span><span class="p">)</span>
+<span class="n">picture_as_image_object</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">picture_as_image_object</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il faut libérer la caméra pour qu’elle puisse être réutilisée dans d’autre programme! Utilise cette instruction pour libérer la caméra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Release camera</span>
+<span class="n">camera_object</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="classification-de-l-image">
+<h2><span class="section-number">3.3. </span>Classification de l’image<a class="headerlink" href="#classification-de-l-image" title="Permalink to this headline">¶</a></h2>
+<p>Pour classifier l’image, tu auras besoin d’un modèle de reconnaissance créé avec la Teachable Machine. Voir l’activité 1 pour comment créer ce modèle.</p>
+<div class="section" id="entrainement-du-classificateur">
+<h3><span class="section-number">3.3.1. </span>Entraînement du classificateur<a class="headerlink" href="#entrainement-du-classificateur" title="Permalink to this headline">¶</a></h3>
+<p>Pour contrôler la tortue, tu peux par exemple utiliser une flèche imprimée sur un papier, comme la flèche ci-dessous:</p>
+<a class="reference internal image-reference" href="../../_images/arrrow.jpg"><img alt="drawing" src="../../_images/arrrow.jpg" style="width: 300px;" /></a>
+<p>Créer ensuite un classificateur avec deux classes dans la Teachable machine, que tu nommeras:</p>
+<ul class="simple">
+<li><p>Forward: Avec des exemples de flèche vers le haut (qui serviront à faire avancer la tortue)</p></li>
+<li><p>Other: Avec des exemples où la flèche ne va pas vers le haut</p></li>
+</ul>
+<p>Prends une quarantaine d’images pour chacune des deux classes, et entraîne le classificateur. Teste-le ensuite, le classificateur devrait reconnaître quand la flèche est orienté vers le haut (classe ‘forward’), comme ci-dessous:</p>
+<a class="reference internal image-reference" href="../../_images/TM_Training.gif"><img alt="TM_Training" src="../../_images/TM_Training.gif" style="width: 900px;" /></a>
+<p>Exporte ensuite le modèle pour Python (Voir activité 1), et copie le ficher <code class="docutils literal notranslate"><span class="pre">model.tflite</span></code> dans le répertoire de tes fichiers Python.</p>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">3.3.2. </span>Classification de l’image<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><strong>Ajout algorigramme</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
+<span class="kn">import</span> <span class="nn">cv2</span> <span class="c1"># cv2 is used to take image from the camera</span>
+<span class="kn">import</span> <span class="nn">myfunctions</span> <span class="c1"># myfunctions helps for taking picture and making predictions</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># matplotlib is used to deal with images</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="c1"># PIL is used to deal with images</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># time is used for making the computer wait</span>
+
+<span class="c1"># Get camera object</span>
+<span class="n">camera_object</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Initialize model</span>
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">initialize_model</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s1">&#39;model.tflite&#39;</span><span class="p">)</span>
+
+<span class="c1"># Infinite loop</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+    <span class="c1"># Wait for one second</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Take image from the camera</span>
+    <span class="n">picture_rgb</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">take_picture</span><span class="p">(</span><span class="n">camera_object</span><span class="p">)</span>
+    
+    <span class="c1"># Predict image class</span>
+    <span class="n">prediction</span><span class="p">,</span> <span class="n">probability</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">model_prediction</span><span class="p">(</span><span class="n">interpreter</span><span class="p">,</span> <span class="n">picture_rgb</span><span class="p">)</span>
+    
+    <span class="c1"># If prediction is class 0, class is &#39;Forward&#39;</span>
+    <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Forward&#39;&quot;</span><span class="p">)</span>
+        
+    <span class="c1"># If prediction is class 1, class is &#39;Other&#39;</span>
+    <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Other&#39;&quot;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Je reconnais la classe &#39;Other&#39;
+Je reconnais la classe &#39;Other&#39;
+Je reconnais la classe &#39;Other&#39;
+Je reconnais la classe &#39;Other&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">2</span><span class="n">y</span><span class="o">/</span><span class="n">mv3z1v0945b60_l2bzjwpzj80000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33278</span><span class="o">/</span><span class="mf">2209539620.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> 
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="c1"># Wait for one second</span>
+<span class="ne">---&gt; </span><span class="mi">18</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> 
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="c1"># Take image from the camera</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Release camera</span>
+<span class="n">camera_object</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="controle-la-tortue-avec-la-reconnaissance-d-image">
+<h2><span class="section-number">3.4. </span>Contrôle la tortue avec la reconnaissance d’image<a class="headerlink" href="#controle-la-tortue-avec-la-reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
+<span class="kn">import</span> <span class="nn">turtle</span> <span class="c1"># For using Python turtle</span>
+<span class="kn">import</span> <span class="nn">cv2</span> <span class="c1"># cv2 is used to take image from the camera</span>
+<span class="kn">import</span> <span class="nn">myfunctions</span> <span class="c1"># myfunctions helps for taking picture and making predictions</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># matplotlib is used to deal with images</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="c1"># PIL is used to deal with images</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># time is used for making the computer wait</span>
+
+<span class="c1"># Open screen and display turtle</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">getscreen</span><span class="p">()</span>
+<span class="c1"># Create a turtle object</span>
+<span class="n">my_turtle</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="c1"># Get camera object</span>
+<span class="n">camera_object</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Initialize model</span>
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">initialize_model</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s1">&#39;model.tflite&#39;</span><span class="p">)</span>
+
+<span class="c1"># Infinite loop</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+    <span class="c1"># Wait for one second</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Take image from the camera</span>
+    <span class="n">picture_rgb</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">take_picture</span><span class="p">(</span><span class="n">camera_object</span><span class="p">)</span>
+    
+    <span class="c1"># Predict image class</span>
+    <span class="n">prediction</span><span class="p">,</span> <span class="n">probability</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">model_prediction</span><span class="p">(</span><span class="n">interpreter</span><span class="p">,</span> <span class="n">picture_rgb</span><span class="p">)</span>
+    
+    <span class="c1"># If prediction is class 0, class is &#39;Forward&#39;</span>
+    <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        
+        <span class="n">my_turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Release camera</span>
+<span class="n">camera_object</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aller-plus-loin">
+<h2><span class="section-number">3.5. </span>Aller plus loin<a class="headerlink" href="#aller-plus-loin" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ajoute des classes avec des images de flèches vers la droite ou la gauche pour faire tourner la tortue à droite ou à gauche</p></li>
+<li><p>Fais un classificateur qui utilise l’image de tube sur sol martien, et pour faire avancer la tortue si aucun tube n’est détecté, et fais s’arrêter la tortue lorsqu’un tube est détecté</p></li>
+</ul>
+</div>
+<div class="section" id="ressources-utiles">
+<h2><span class="section-number">3.6. </span>Ressources utiles<a class="headerlink" href="#ressources-utiles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/fr/3/library/turtle.html">Documentation pour la tortue Python</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./1_Image_Recognition/Image_Recognition_Python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../Image_Recognition_Scratch/Image_Recognition_Scratch.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Reconnaissance d’images avec Scratch</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../2_Rover_Building/Rover_Building/Rover_Building.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Construction du FetchBot</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By <a href="https://www.lascientotheque.be/">La Scientothèque</a>, 2022.<br/>
+        
+          <div class="extra_footer">
+            <p>
+License: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
