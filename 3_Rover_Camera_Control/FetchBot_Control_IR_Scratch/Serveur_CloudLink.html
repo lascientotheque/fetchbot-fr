@@ -261,14 +261,14 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/lascientotheque/ai-rover-fr"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/lascientotheque/fetchbot-fr"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lascientotheque/ai-rover-fr/issues/new?title=Issue%20on%20page%20%2F3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Serveur_CloudLink.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lascientotheque/fetchbot-fr/issues/new?title=Issue%20on%20page%20%2F3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Serveur_CloudLink.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lascientotheque/ai-rover-fr/edit/main/3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Serveur_CloudLink.ipynb"><button
+        <a class="edit-button" href="https://github.com/lascientotheque/fetchbot-fr/edit/main/3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Serveur_CloudLink.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -288,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lascientotheque/ai-rover-fr/main?urlpath=tree/3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Serveur_CloudLink.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lascientotheque/fetchbot-fr/main?urlpath=tree/3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Serveur_CloudLink.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -296,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/lascientotheque/ai-rover-fr/blob/main/3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Serveur_CloudLink.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/lascientotheque/fetchbot-fr/blob/main/3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Serveur_CloudLink.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -339,16 +339,7 @@ For more information, please visit https://hackmd.io/G9q1kPqvQT6NrPobjjxSgg</p>
 <span class="kn">import</span> <span class="nn">gpiozero</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">gpiozero</span><span class="o">.</span><span class="n">Motor</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">right_motor</span> <span class="o">=</span> <span class="n">gpiozero</span><span class="o">.</span><span class="n">Motor</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-
-<span class="n">motor_speed</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="kn">import</span> <span class="nn">motor_control</span>
 </pre></div>
 </div>
 </div>
@@ -356,46 +347,18 @@ For more information, please visit https://hackmd.io/G9q1kPqvQT6NrPobjjxSgg</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_packet</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bla&quot;</span><span class="p">)</span>
-    <span class="c1"># We can get the IP of the client</span>
-    <span class="c1">#if type(message[&quot;id&quot;]) == dict:</span>
-    <span class="c1">#    print(&quot;Username is not set for this ID, ID is {0}&quot;.format(message[&quot;id&quot;][&quot;id&quot;]))</span>
-    <span class="c1">#    print(&quot;IP of unnamed user is {0}&quot;.format(cl.getIPofObject(message[&quot;id&quot;])))</span>
-    <span class="c1">#elif type(message[&quot;id&quot;]) == str:</span>
-    <span class="c1">#    print(&quot;Username set as {0}&quot;.format(message[&quot;id&quot;]))</span>
-    <span class="c1">#    print(&quot;IP of user is {0}&quot;.format(cl.getIPofUsername(message[&quot;id&quot;])))</span>
-
+    
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cmd is </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
     
     <span class="c1"># Vérifie si le message est une commande pour Raspberry</span>
     
-    <span class="c1">#message = json.load(message)</span>
-    
     <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">])</span>
     
     <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Forward&quot;</span><span class="p">:</span>
-        <span class="n">left_motor</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">motor_speed</span><span class="p">)</span>
-        <span class="n">right_motor</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">motor_speed</span><span class="p">)</span>
+        <span class="n">motor_control</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)</span>
     
-    <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Stop&quot;</span><span class="p">:</span>
-        <span class="n">left_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-        <span class="n">right_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-    
-    
-    
-    <span class="c1">#if &quot;cmd&quot; in message:</span>
-    <span class="c1">#    print(&quot;Detected custom cmd&quot;)</span>
-    <span class="c1">#    print(&quot;cmd is {0}&quot;.format(message[&quot;cmd&quot;]))</span>
-    
-    <span class="c1">#print(&quot;val is&quot;, message[&quot;val&quot;])</span>
-
-    <span class="c1"># Send back a status code to the user</span>
-    <span class="c1">#cl.sendPacket({&quot;cmd&quot;: &quot;statuscode&quot;, &quot;val&quot;: cl.codes[&quot;OK&quot;], &quot;id&quot;: message[&quot;id&quot;]})</span>
-    <span class="c1">#cl.sendPacket({&quot;cmd&quot;: &quot;direct&quot;, &quot;val&quot;: message[&quot;val&quot;], &quot;id&quot;: message[&quot;id&quot;]})</span>
-
-<span class="c1">#def on_packet(message):</span>
-<span class="c1">#    print(&quot;bla&quot;)</span>
-
+    <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Left&quot;</span><span class="p">:</span>
+        <span class="n">motor_control</span><span class="o">.</span><span class="n">turn_left</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
     
 <span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New client connected:&quot;</span><span class="p">,</span> <span class="n">client</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>

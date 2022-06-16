@@ -20,5 +20,5 @@ Construis un rover martien avec une carte Raspberry Pi et programme-le avec des 
 
 ## Guide des activités
 
-[https://lascientotheque.github.io/ai-rover-fr/README.html](https://lascientotheque.github.io/ai-rover-fr/README.html)
+[https://lascientotheque.github.io/fetchbot-fr/Overview.html](https://lascientotheque.github.io/fetchbot-fr/Overview.html)
 

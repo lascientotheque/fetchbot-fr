@@ -263,14 +263,14 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/lascientotheque/ai-rover-fr"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/lascientotheque/fetchbot-fr"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lascientotheque/ai-rover-fr/issues/new?title=Issue%20on%20page%20%2F4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lascientotheque/fetchbot-fr/issues/new?title=Issue%20on%20page%20%2F4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lascientotheque/ai-rover-fr/edit/main/4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.md"><button
+        <a class="edit-button" href="https://github.com/lascientotheque/fetchbot-fr/edit/main/4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -311,18 +311,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook">
-     10.3.1. Jupyter notebook
+    <a class="reference internal nav-link" href="#copie-du-depot">
+     10.3.1. Copie du dépôt
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clone-repo">
-     10.3.2. Clone repo
+    <a class="reference internal nav-link" href="#jupyter-notebook">
+     10.3.2. Jupyter notebook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imagemagick">
+     10.3.3. ImageMagick
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#opencv">
-     10.3.3. OpenCV
+     10.3.4. OpenCV
     </a>
    </li>
   </ul>
@@ -372,41 +377,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="installation-des-logiciels">
 <h2><span class="section-number">10.3. </span>Installation des logiciels<a class="headerlink" href="#installation-des-logiciels" title="Permalink to this headline">¶</a></h2>
-<p>Les activités MarsCambot nécessitent</p>
-<div class="section" id="jupyter-notebook">
-<h3><span class="section-number">10.3.1. </span>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h3>
-<p>preference - Add/Remove software / Jupter interactive notebook</p>
-<p>https://www.instructables.com/Jupyter-Notebook-on-Raspberry-Pi/</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">su</span> <span class="o">-</span>
-<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">matplotlib</span>
-<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">scipy</span>
-<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span>
-<span class="n">reboot</span>
-<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">jupyter</span>
-
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">clean</span>
-<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">force</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">console</span>
-
-<span class="n">avant</span> <span class="n">pip</span> <span class="n">jupyter</span><span class="p">:</span>
-
-<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">installed</span> <span class="n">pyzmq</span>
-
-<span class="n">et</span> <span class="n">après</span> 
-
-<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">ipython</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="../../_images/install_script.jpg"><img alt="../../_images/install_script.jpg" src="../../_images/install_script.jpg" style="width: 900px;" /></a>
-<p>ERROR: Cannot uninstall ‘pyzmq’. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.</p>
-</div>
-<div class="section" id="clone-repo">
-<h3><span class="section-number">10.3.2. </span>Clone repo<a class="headerlink" href="#clone-repo" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="copie-du-depot">
+<h3><span class="section-number">10.3.1. </span>Copie du dépôt<a class="headerlink" href="#copie-du-depot" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">lascientotheque</span><span class="o">/</span><span class="n">ai</span><span class="o">-</span><span class="n">rover</span><span class="o">-</span><span class="n">fr</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/git_clone.jpg"><img alt="../../_images/git_clone.jpg" src="../../_images/git_clone.jpg" style="width: 900px;" /></a>
-<p>install imagemagick from software (image manipulation program - binaries)</p>
+</div>
+<div class="section" id="jupyter-notebook">
+<h3><span class="section-number">10.3.2. </span>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<p>Preference - Add/Remove software - Jupyter interactive notebook</p>
+</div>
+<div class="section" id="imagemagick">
+<h3><span class="section-number">10.3.3. </span>ImageMagick<a class="headerlink" href="#imagemagick" title="Permalink to this headline">¶</a></h3>
+<p>Preference - Add/Remove software - Imagemagick from software (image manipulation program - binaries)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>picture_as_image_object.show()
 see https://forums.raspberrypi.com/viewtopic.php?t=257776
 
@@ -414,7 +398,7 @@ see https://forums.raspberrypi.com/viewtopic.php?t=257776
 </div>
 </div>
 <div class="section" id="opencv">
-<h3><span class="section-number">10.3.3. </span>OpenCV<a class="headerlink" href="#opencv" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.3.4. </span>OpenCV<a class="headerlink" href="#opencv" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">opencv</span><span class="o">-</span><span class="n">contrib</span><span class="o">-</span><span class="n">python</span>
 </pre></div>
 </div>
@@ -425,9 +409,9 @@ see https://forums.raspberrypi.com/viewtopic.php?t=257776
 <div class="section" id="resources-utiles">
 <h2><span class="section-number">10.4. </span>Resources utiles<a class="headerlink" href="#resources-utiles" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><span class="xref myst">https://github.com/CamJam-EduKit/EduKit3/blob/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%201%20(GPIO%20Zero)%20-%20Introduction.pdf</span></p></li>
-<li><p><span class="xref myst">https://raw.githubusercontent.com/CamJam-EduKit/EduKit3/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%202%20(GPIO%20Zero)%20-%20Building%20a%20Robot.pdf</span></p></li>
-<li><p><span class="xref myst">https://projects.raspberrypi.org/fr-FR/projects/raspberry-pi-getting-started</span></p></li>
+<li><p><a class="reference external" href="https://github.com/CamJam-EduKit/EduKit3/blob/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%201%20(GPIO%20Zero)%20-%20Introduction.pdf">https://github.com/CamJam-EduKit/EduKit3 - Introduction.pdf</a></p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/CamJam-EduKit/EduKit3/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%202%20(GPIO%20Zero)%20-%20Building%20a%20Robot.pdf">Robot building</a></p></li>
+<li><p><a class="reference external" href="https://projects.raspberrypi.org/fr-FR/projects/raspberry-pi-getting-started">Raspberry Pi Getting Started</a></p></li>
 </ul>
 </div>
 </div>
