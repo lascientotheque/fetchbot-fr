@@ -37,46 +37,8 @@ La capture d'écran ci-dessous montre l'interface VNC connectée à un RPi (vers
 
 ## Installation des logiciels
 
-Les activités MarsCambot nécessitent 
 
-
-
-
-### Jupyter notebook
-
-
-preference - Add/Remove software / Jupter interactive notebook
-
-https://www.instructables.com/Jupyter-Notebook-on-Raspberry-Pi/
-
-```
-sudo su -
-apt-get update
-apt-get install python3-matplotlib
-apt-get install python3-scipy
-pip3 install --upgrade pip
-reboot
-sudo pip3 install jupyter
-
-sudo apt-get clean
-pip3 install --upgrade --force jupyter-console
-
-avant pip jupyter:
-
-pip3 install --ignore-installed pyzmq
-
-et après 
-
-sudo pip3 install -U ipython
-```
-
-
-
-<img src="images/install_script.jpg" width="900"/> 
-
-ERROR: Cannot uninstall 'pyzmq'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
-
-### Clone repo
+### Copie du dépôt
 
 ```
 git clone https://github.com/lascientotheque/ai-rover-fr
@@ -84,7 +46,14 @@ git clone https://github.com/lascientotheque/ai-rover-fr
 
 <img src="images/git_clone.jpg" width="900"/> 
 
-install imagemagick from software (image manipulation program - binaries)
+### Jupyter notebook
+
+
+Preference - Add/Remove software - Jupyter interactive notebook
+
+### ImageMagick
+
+Preference - Add/Remove software - Imagemagick from software (image manipulation program - binaries)
 
 ```
 picture_as_image_object.show()
@@ -104,9 +73,9 @@ Prend environ 2 ou 3 heures pour s'installer.
 
 ## Resources utiles
 
-* [https://github.com/CamJam-EduKit/EduKit3/blob/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%201%20(GPIO%20Zero)%20-%20Introduction.pdf]()
-* [https://raw.githubusercontent.com/CamJam-EduKit/EduKit3/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%202%20(GPIO%20Zero)%20-%20Building%20a%20Robot.pdf]()
-* [https://projects.raspberrypi.org/fr-FR/projects/raspberry-pi-getting-started]()
+* [https://github.com/CamJam-EduKit/EduKit3 - Introduction.pdf](https://github.com/CamJam-EduKit/EduKit3/blob/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%201%20(GPIO%20Zero)%20-%20Introduction.pdf)
+* [Robot building](https://raw.githubusercontent.com/CamJam-EduKit/EduKit3/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%202%20(GPIO%20Zero)%20-%20Building%20a%20Robot.pdf)
+* [Raspberry Pi Getting Started](https://projects.raspberrypi.org/fr-FR/projects/raspberry-pi-getting-started)
 
 
 
