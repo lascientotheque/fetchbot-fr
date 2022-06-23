@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html">
-   7. MarsCamBot avec caméra
+   7. FetchBot avec caméra
   </a>
  </li>
  <li class="toctree-l1">
@@ -323,18 +323,52 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lancer-le-serveur-cloudlink">
-   5.2. Lancer le serveur CloudLink
+  <a class="reference internal nav-link" href="#adacraft">
+   5.2. Adacraft
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#connexion-au-fetchbot">
-   5.3. Connexion au FetchBot
+  <a class="reference internal nav-link" href="#creer-un-projet-adacraft">
+   5.3. Créer un projet Adacraft
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notes-sur-les-objectifs-pedagogiques">
-   5.4. Notes sur les objectifs pédagogiques
+  <a class="reference internal nav-link" href="#connexion-au-rover">
+   5.4. Connexion au rover
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lancer-le-serveur-cloudlink">
+     5.4.1. Lancer le serveur CloudLink
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connexion-au-rover-dans-adacraft">
+     5.4.2. Connexion au rover dans Adacraft
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#faire-avancer-le-rover">
+   5.5. Faire avancer le rover
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tester-le-code">
+     5.5.1. Tester le code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#faire-tourner-le-rover">
+   5.6. Faire tourner le rover
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pour-aller-plus-loin">
+   5.7. Pour aller plus loin
   </a>
  </li>
 </ul>
@@ -381,25 +415,72 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="apercu">
 <h2><span class="section-number">5.1. </span>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="adacraft">
+<h2><span class="section-number">5.2. </span>Adacraft<a class="headerlink" href="#adacraft" title="Permalink to this headline">¶</a></h2>
+<p>Cette activité utilise Adacraft, qui est une version modifiée de Scratch incluant une extension permettant de communiquer avec le rover. L’extension s’appelle ‘CloudLink’, et te permettra de te connecter au rover, et de lui envoyer des messages pour le faire avancer, tourner, ou reculer.</p>
+</div>
+<div class="section" id="creer-un-projet-adacraft">
+<h2><span class="section-number">5.3. </span>Créer un projet Adacraft<a class="headerlink" href="#creer-un-projet-adacraft" title="Permalink to this headline">¶</a></h2>
+<p>Rends-toi sur le site d’Adacraft: <a class="reference external" href="https://www.adacraft.org">https://www.adacraft.org</a>, puis clique sur ‘Create’ en haut à gauche.</p>
+<a class="reference internal image-reference" href="../../_images/Adacraft_1_LandingPage1.jpg"><img alt="Adacraft_1_LandingPage" src="../../_images/Adacraft_1_LandingPage1.jpg" style="width: 900px;" /></a>
+<p>Si tu n’es pas inscrit, un message apparaîtra t’informant que ton travail ne pourra pas être sauvegardé. Il est intéressant de t’inscrire sur le site (en cliquant sur ‘Sign up’) pour pouvoir sauvegarder tes programmes. Si tu souhaites juste tester l’interface, clique sur ‘Start creating without online saving’. Tu pourras dans tous les cas sauvegarder ton travail en le téléchargeant sur ton ordinateur.</p>
+<p>Une fois ce message validé, tu arriveras sur l’interface du <em>studio</em> dans lequel tu pourras créer tes programmes.</p>
+<a class="reference internal image-reference" href="../../_images/Adacraft_2_Studio1.jpg"><img alt="Adacraft_2_Studio" src="../../_images/Adacraft_2_Studio1.jpg" style="width: 900px;" /></a>
+<p>Tu peux choisir la langue en cliquant sur l’icône de planète en haut à gauche.</p>
+</div>
+<div class="section" id="connexion-au-rover">
+<h2><span class="section-number">5.4. </span>Connexion au rover<a class="headerlink" href="#connexion-au-rover" title="Permalink to this headline">¶</a></h2>
+<p>La connexion au rover se fera grâce <a class="reference external" href="https://github.com/MikeDev101/cloudlink">au système CloudLink</a>, qui permet à Scratch d’envoyer des messages au rover.</p>
+<a class="reference internal image-reference" href="../../_images/Scratch_CloudLink.jpg"><img alt="Scratch_CloudLink" src="../../_images/Scratch_CloudLink.jpg" style="width: 900px;" /></a>
 <div class="section" id="lancer-le-serveur-cloudlink">
-<h2><span class="section-number">5.2. </span>Lancer le serveur CloudLink<a class="headerlink" href="#lancer-le-serveur-cloudlink" title="Permalink to this headline">¶</a></h2>
-<p>Pour pouvoir communiquer avec le FetchBot, il faut permettre à Scratch d’envoyer des messages à la carte Raspberry. Tu utiliseras</p>
-<p>Voir <span class="xref myst">../0_Getting_Started/CloudLink_Server</span></p>
+<h3><span class="section-number">5.4.1. </span>Lancer le serveur CloudLink<a class="headerlink" href="#lancer-le-serveur-cloudlink" title="Permalink to this headline">¶</a></h3>
+<p>Pour que le rover puisse recevoir les messages, il faut lancer le programme Python <code class="docutils literal notranslate"><span class="pre">start_cloudlink.py</span></code>. Le programme se trouve dans le répertoire ‘tools/cloudlink’ du <a class="reference external" href="https://github.com/lascientotheque/fetchbot-fr">dépôt GitHub</a>. Pour le lancer, ouvre un terminal de commande, puis va dans le répertoire ‘fetchbot-fr/tools/cloudlink’ avec la commande</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">fetchbot</span><span class="o">-</span><span class="n">fr</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">cloudlink</span>
+</pre></div>
 </div>
-<div class="section" id="connexion-au-fetchbot">
-<h2><span class="section-number">5.3. </span>Connexion au FetchBot<a class="headerlink" href="#connexion-au-fetchbot" title="Permalink to this headline">¶</a></h2>
-<p>Crée un nouveau projet dans Adacraft (voir activité 2), et tu te serviras de l’extension ‘CloudLink’ pour communiquer avec le rover</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si le répertoire n’existe pas, c’est que les fichiers du <a class="reference external" href="https://github.com/lascientotheque/fetchbot-fr">dépôt Github</a> se trouvent dans un autre répertoire que celui donné en exemple lors de <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#github-depot"><span class="std std-ref">la copie du dépôt GitHub</span></a>. Remplace le répertoire <code class="docutils literal notranslate"><span class="pre">fetchbot-fr</span></code> par celui où les fichier ont été téléchargés.</p>
 </div>
-<div class="section" id="notes-sur-les-objectifs-pedagogiques">
-<h2><span class="section-number">5.4. </span>Notes sur les objectifs pédagogiques<a class="headerlink" href="#notes-sur-les-objectifs-pedagogiques" title="Permalink to this headline">¶</a></h2>
-<p>Référentiel FMTTN:</p>
-<ol class="simple">
-<li><p>Lire un algorithme simple</p></li>
-<li><p>Écrire un algorithme simple</p></li>
-<li><p>Lire un programme simple</p></li>
-<li><p>Écrire un programme simple</p></li>
-<li><p>Identifier des éléments relatifs à la programmation et aux logigrammes.|</p></li>
-</ol>
+<p>Lance ensuite le script <code class="docutils literal notranslate"><span class="pre">start_cloudlink.py</span></code> avec la commande python</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">start_cloudlink</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connexion-au-rover-dans-adacraft">
+<h3><span class="section-number">5.4.2. </span>Connexion au rover dans Adacraft<a class="headerlink" href="#connexion-au-rover-dans-adacraft" title="Permalink to this headline">¶</a></h3>
+<p>Pour te connecter au rover dans Adacraft, tu auras besoin de l’extension Cloudlink. Pour y accéder, il faut cliquer sur l’icône en bas à gauche ‘Ajouter une extension’. Ceci t’amènera à une page avec toutes les extensions disponibles. Descend dans la page pour trouver l’extension ‘Cloudlink’ et clique dessus. Tu pourras voir l’extension dans la zone d’instructions.</p>
+<p>Le bloc pour se connecter au rover avec CloudLink est dans la catégorie ‘CloudLink’, et s’appelle “Connect to ws://127.0.0.1:3000”. Sélectionne le et place le dans la zone du programme.</p>
+<a class="reference internal image-reference" href="../../_images/Adacraft_3_CloudLink_Extension.gif"><img alt="Adacraft_3_CloudLink_Extension" src="../../_images/Adacraft_3_CloudLink_Extension.gif" style="width: 1000px;" /></a>
+</div>
+</div>
+<div class="section" id="faire-avancer-le-rover">
+<h2><span class="section-number">5.5. </span>Faire avancer le rover<a class="headerlink" href="#faire-avancer-le-rover" title="Permalink to this headline">¶</a></h2>
+<p>Le pilotage du rover se fait avec le bloc ‘Send command cmd id val’ dans la catégorie <code class="docutils literal notranslate"><span class="pre">CloudLink</span></code>. Il s’agit du dernier bloc de la catégorie. Pour faire avance le rover, il faut remplacer ‘cmd’ par ‘direct’, et ‘val’ par ‘forward’ (qui signifier ‘avancer’ en anglais).</p>
+<p>Place le bloc sous celui de la connexion, et ajoute un drapeau de démarrage du programme.</p>
+<a class="reference internal image-reference" href="../../_images/Adacraft_4_CloudLink_Forward.gif"><img alt="Adacraft_4_CloudLink_Forward" src="../../_images/Adacraft_4_CloudLink_Forward.gif" style="width: 1000px;" /></a>
+<div class="section" id="tester-le-code">
+<h3><span class="section-number">5.5.1. </span>Tester le code<a class="headerlink" href="#tester-le-code" title="Permalink to this headline">¶</a></h3>
+<p>Remarque : Avant d’exécuter le code, allume la batterie. Remarque : place ton robot sur un support de manière à ce que les moteurs ne touchent pas le sol. Tu ne veux pas que ton robot tombe du bureau !</p>
+<p>Tu es maintenant prêt à exécuter le code. Clique sur le drapeau vert au dessus de la scène. Si tu constates que le code ne s’exécute pas correctement, il se peut qu’il y ait une erreur dans le code que tu as tapé.</p>
+<p>Tu devrais maintenant voir les deux moteurs tourner en avant en même temps pendant une demie seconde. Si un seul moteur tourne, vérifie ton câblage. Si l’un des moteurs tourne en arrière, intervertis les fils rouge et noir de ce moteur dans le bornier. Continue à tester le code jusqu’à ce que les fils soient à la bonne place.</p>
+</div>
+</div>
+<div class="section" id="faire-tourner-le-rover">
+<h2><span class="section-number">5.6. </span>Faire tourner le rover<a class="headerlink" href="#faire-tourner-le-rover" title="Permalink to this headline">¶</a></h2>
+<p>Pour faire tourner le robot, utilise le même bloc que pour le faire avancer, mais au lieu d’envoyer la valeur ‘forward’, tu envoies</p>
+<ul class="simple">
+<li><p>La valeur ‘left’ pour tourner à gauche</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/Adacraft_4_CloudLink_Left.jpg"><img alt="Adacraft_4_CloudLink_Left" src="../../_images/Adacraft_4_CloudLink_Left.jpg" style="width: 300px;" /></a>
+<ul class="simple">
+<li><p>La valeur ‘right’ pour tourner à droite</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/Adacraft_4_CloudLink_Right.jpg"><img alt="Adacraft_4_CloudLink_Right" src="../../_images/Adacraft_4_CloudLink_Right.jpg" style="width: 300px;" /></a>
+</div>
+<div class="section" id="pour-aller-plus-loin">
+<h2><span class="section-number">5.7. </span>Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permalink to this headline">¶</a></h2>
+<p>Tu sais maintenant comment faire avancer ou tourner le FetchBot. Expérimente avec différents parcours. Pourrais-tu faire le code qui permettrait au robot de faire un itinéraire en forme de carré?</p>
 </div>
 </div>
 

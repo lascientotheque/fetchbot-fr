@@ -126,17 +126,17 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Rover_Building/Rover_Building.html">
+  <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html">
    4. Construction du FetchBot
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="FetchBot_Control_Scratch.html">
+  <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch.html">
    5. Contrôle du FetchBot avec Scratch
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../FetchBot_Control_Python/FetchBot_Control_Python.html">
+  <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python.html">
    6. Contrôle du FetchBot avec Python
   </a>
  </li>
@@ -149,7 +149,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html">
-   7. MarsCamBot avec caméra
+   7. FetchBot avec caméra
   </a>
  </li>
  <li class="toctree-l1">
@@ -245,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/2_Rover_Building/FetchBot_Control_Scratch/Serveur_CloudLink.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/tools/cloudlink/start_cloudlink.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -265,10 +265,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lascientotheque/fetchbot-fr/issues/new?title=Issue%20on%20page%20%2F2_Rover_Building/FetchBot_Control_Scratch/Serveur_CloudLink.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lascientotheque/fetchbot-fr/issues/new?title=Issue%20on%20page%20%2Ftools/cloudlink/start_cloudlink.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/lascientotheque/fetchbot-fr/edit/main/2_Rover_Building/FetchBot_Control_Scratch/Serveur_CloudLink.ipynb"><button
+        <a class="edit-button" href="https://github.com/lascientotheque/fetchbot-fr/edit/main/tools/cloudlink/start_cloudlink.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -288,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lascientotheque/fetchbot-fr/main?urlpath=tree/2_Rover_Building/FetchBot_Control_Scratch/Serveur_CloudLink.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lascientotheque/fetchbot-fr/main?urlpath=tree/tools/cloudlink/start_cloudlink.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -296,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/lascientotheque/fetchbot-fr/blob/main/2_Rover_Building/FetchBot_Control_Scratch/Serveur_CloudLink.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/lascientotheque/fetchbot-fr/blob/main/tools/cloudlink/start_cloudlink.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -355,10 +355,10 @@ For more information, please visit https://hackmd.io/G9q1kPqvQT6NrPobjjxSgg</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">])</span>
     
     <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Forward&quot;</span><span class="p">:</span>
-        <span class="n">motor_control</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)</span>
+        <span class="n">motor_control</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">speed</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Left&quot;</span><span class="p">:</span>
-        <span class="n">motor_control</span><span class="o">.</span><span class="n">turn_left</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">motor_control</span><span class="o">.</span><span class="n">turn_left</span><span class="p">(</span><span class="n">speed</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     
 <span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New client connected:&quot;</span><span class="p">,</span> <span class="n">client</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
@@ -446,7 +446,7 @@ Stop
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./2_Rover_Building/FetchBot_Control_Scratch"
+            path: "./tools/cloudlink"
         },
         predefinedOutput: true
     }

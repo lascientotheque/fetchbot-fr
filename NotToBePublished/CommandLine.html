@@ -149,7 +149,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html">
-   7. MarsCamBot avec caméra
+   7. FetchBot avec caméra
   </a>
  </li>
  <li class="toctree-l1">
@@ -305,7 +305,8 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <p>ffmpeg -i tm.mov -vf “fps=5,scale=300:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse” -loop 0 tm.gif</p>
-<p>fmpeg -i resources.mov -vf “fps=5,scale=1000:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse” -loop 0 resources.gif</p>
+<p>ffmpeg -i resources.mov -vf “fps=5,scale=1000:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse” -loop 0 resources.gif</p>
+<p>ffmpeg -i Adacraft_4_CloudLink_Forward.mov -vf “fps=5,scale=1000:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse” -loop 0 Adacraft_4_CloudLink_Forward.gif</p>
 
     <script type="text/x-thebe-config">
     {
