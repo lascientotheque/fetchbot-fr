@@ -71,7 +71,7 @@ Exemples de rovers FetchBot construits un chassis en carton, en impression 3D, o
 |<a href="https://www.youtube.com/watch?v=LJDEV7rGwaM">Chassis en carton (avec la boîte du CamJam EduKit)</a>|<a href="https://camjam.me/?page_id=1035">Chassis en impression 3D</a>|<a href="https://www.youtube.com/watch?v=LKTpj8QHWEc">Chassis en bois</a>|
 
 ```{note}
-Les activités 5 et 6 sont indépendantes, mais nécessitent d'avoir fait l'activité 4 et d'avoir construit le rover.
+Les activités 5 et 6 sont indépendantes, mais nécessitent d'avoir fait l'activité 4 de construction du rover.
 ```
 
 ### 3. Contrôle intelligent du rover
