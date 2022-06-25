@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Contrôle du FetchBot avec Scratch &#8212; Explore le sol martien avec le FetchBot!</title>
+    <title>5. Contrôle du FetchBot avec Scratch &#8212; Rover martien intelligent FetchBot</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -84,7 +84,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../../_static/fetch-rover-small.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Explore le sol martien avec le FetchBot!</h1>
+      <h1 class="site-logo" id="site-title">Rover martien intelligent FetchBot</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -318,8 +318,8 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apercu">
-   5.1. Aperçu
+  <a class="reference internal nav-link" href="#preparation">
+   5.1. Préparation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -388,7 +388,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="controle-du-fetchbot-avec-scratch">
-<h1><span class="section-number">5. </span>Contrôle du FetchBot avec Scratch<a class="headerlink" href="#controle-du-fetchbot-avec-scratch" title="Permalink to this headline">¶</a></h1>
+<span id="fetchbot-control-scratch"></span><h1><span class="section-number">5. </span>Contrôle du FetchBot avec Scratch<a class="headerlink" href="#controle-du-fetchbot-avec-scratch" title="Permalink to this headline">¶</a></h1>
 <p><strong>Objectif:</strong> Faire déplacer le FetchBot avec Scratch.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -401,7 +401,7 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>10 à 14 ans</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Notions abordées</p></td>
-<td class="text-align:left"><p>Robotique, programmation avec Scratch, condition, boucle.</p></td>
+<td class="text-align:left"><p>Robotique, programmation avec Scratch, logigramme</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Durée</p></td>
 <td class="text-align:left"><p>4 heures</p></td>
@@ -410,19 +410,20 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>Par groupe de 2</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Matériel</p></td>
-<td class="text-align:left"><p>Un FetchBot, Un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
+<td class="text-align:left"><p>Un FetchBot et un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Prérequis</p></td>
-<td class="text-align:left"><p>1. Connaissances de bases de Scratch (voir Activité 2 - Reconnaissance d’images avec Scratch)<br> 2. Avoir construit le FetchBot et s’y être connecté avec VNC viewer (voir Activité 4 - Construction du rover)</p></td>
+<td class="text-align:left"><p>1. Connaissances de bases de Scratch (voir <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Scratch/Image_Recognition_Scratch.html#image-recognition-scratch"><span class="std std-ref">Activité 2 - Reconnaissance d’images avec Scratch</span></a>)<br> 2. Avoir pris en main le Raspberry Pi, et savoir s’y connecter avec VNC viewer (voir <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">Raspberry Pi: Prise en main et préparation</span></a>)<br> 3. Avoir construit le FetchBot (voir <a class="reference internal" href="../Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">Activité 4 - Construction du rover</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="apercu">
-<h2><span class="section-number">5.1. </span>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preparation">
+<h2><span class="section-number">5.1. </span>Préparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>Ton <a class="reference internal" href="../Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">rover est construit</span></a>, et tu y es <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">connecté avec VNC viewer</span></a> depuis un ordinateur ou une tablette.</p>
 </div>
 <div class="section" id="adacraft">
 <h2><span class="section-number">5.2. </span>Adacraft<a class="headerlink" href="#adacraft" title="Permalink to this headline">¶</a></h2>
-<p>Cette activité utilise Adacraft, qui est une version modifiée de Scratch incluant une extension permettant de communiquer avec le rover. L’extension s’appelle ‘CloudLink’, et te permettra de te connecter au rover, et de lui envoyer des messages pour le faire avancer, tourner, ou reculer.</p>
+<p>Cette activité utilise Adacraft, qui est une version modifiée de Scratch incluant une extension permettant de communiquer avec le rover. L’extension s’appelle ‘CloudLink’, et te permettra de te connecter au rover, et de lui envoyer des messages pour le faire avancer ou tourner.</p>
 </div>
 <div class="section" id="creer-un-projet-adacraft">
 <h2><span class="section-number">5.3. </span>Créer un projet Adacraft<a class="headerlink" href="#creer-un-projet-adacraft" title="Permalink to this headline">¶</a></h2>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Contrôle du FetchBot et reconnaissance d’images avec Scratch &#8212; Explore le sol martien avec le FetchBot!</title>
+    <title>8. Contrôle du FetchBot et reconnaissance d’images avec Scratch &#8212; Rover martien intelligent FetchBot</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -84,7 +84,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../../_static/fetch-rover-small.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Explore le sol martien avec le FetchBot!</h1>
+      <h1 class="site-logo" id="site-title">Rover martien intelligent FetchBot</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -323,23 +323,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lancer-le-serveur-cloudlink">
-   8.2. Lancer le serveur CloudLink
+  <a class="reference internal nav-link" href="#preparation">
+   8.2. Préparation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#connexion-au-fetchbot">
-   8.3. Connexion au FetchBot
+  <a class="reference internal nav-link" href="#creation-du-modele-de-reconnaissance-d-images">
+   8.3. Création du modèle de reconnaissance d’images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#faire-parler-le-sprite">
+   8.4. Faire parler le sprite
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#controle-avec-la-reconnaissance-d-images">
-   8.4. Contrôle avec la reconnaissance d’images
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notes-sur-les-objectifs-pedagogiques">
-   8.5. Notes sur les objectifs pédagogiques
+   8.5. Contrôle avec la reconnaissance d’images
   </a>
  </li>
 </ul>
@@ -355,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="controle-du-fetchbot-et-reconnaissance-d-images-avec-scratch">
 <h1><span class="section-number">8. </span>Contrôle du FetchBot et reconnaissance d’images avec Scratch<a class="headerlink" href="#controle-du-fetchbot-et-reconnaissance-d-images-avec-scratch" title="Permalink to this headline">¶</a></h1>
-<p><strong>Objectif:</strong> Faire déplacer le FetchBot avec Scratch.</p>
+<p><strong>Objectif:</strong> Faire déplacer le FetchBot avec Scratch en utilisant la reconnaissance d’images.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p></p></th>
@@ -367,7 +367,7 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>10 à 14 ans</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Notions abordées</p></td>
-<td class="text-align:left"><p>Robotique, programmation avec Scratch, condition, boucle.</p></td>
+<td class="text-align:left"><p>Intelligence artificielle, classification d’images, robotique, programmation avec Scratch, condition, boucle.</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Durée</p></td>
 <td class="text-align:left"><p>4 heures</p></td>
@@ -376,39 +376,44 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>Par groupe de 2</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Matériel</p></td>
-<td class="text-align:left"><p>Un FetchBot, Un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
+<td class="text-align:left"><p>Un FetchBot et un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Prérequis</p></td>
-<td class="text-align:left"><p>1. Connaissances de bases de Scratch (voir Activité 2 - Reconnaissance d’images avec Scratch)<br> 2. Avoir construit le FetchBot et s’y être connecté avec VNC viewer (voir Activité 4 - Construction du rover)</p></td>
+<td class="text-align:left"><p>1. Connaissances de bases de Scratch (voir <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Scratch/Image_Recognition_Scratch.html#image-recognition-scratch"><span class="std std-ref">Activité 2 - Reconnaissance d’images avec Scratch</span></a>)<br> 2. Avoir pris en main le Raspberry Pi, et savoir s’y connecter avec VNC viewer (voir <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">Raspberry Pi: Prise en main et préparation</span></a>)<br> 3. Avoir construit le FetchBot (voir <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">Activité 4 - Construction du rover</span></a>)<br> 4. Avoir programmé le FetchBot pour le faire se déplacer (voir <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch.html#fetchbot-control-scratch"><span class="std std-ref">Activité 6 - Contrôle du FetchBot avec Scratch</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="apercu">
 <h2><span class="section-number">8.1. </span>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
+<p>Dans cette activité, tu vas programmer le FetchBot pour le faire explorer un terrain et retrouver un objet. On utilisera comme exemple ici la recherche d’un tube sur un sol martien, comme ce que devra faire le rover Fetch sur mars. Tu utiliseras la reconnaissance d’images pour contrôler ce que fais le rover: Faire avancer le robot lorsque le terrain est dégagé, le faire tourner lorsqu’il rencontre un obstacle, et le faire s’arrêter lorsqu’il trouve le tube.</p>
+<a class="reference internal image-reference" href="../../_images/Fetchbot_Moving.gif"><img alt="../../_images/Fetchbot_Moving.gif" src="../../_images/Fetchbot_Moving.gif" style="width: 600px;" /></a>
+<p>L’activité se compose de trois parties principales:</p>
+<ul class="simple">
+<li><p>Créer un modèle de reconnaissance d’images capable de détecter 3 types de classes: le sol dégagé, les obstacles, et les tubes</p></li>
+<li><p>Utiliser le modèle de reconnaissance d’images dans un programme Scratch pour faire dire au sprite de rover la classe détectée (comme dnas l’activité 2)</p></li>
+<li><p>Rajouter à ce programme Scratch l’envoi de commandes au rover en fonction de la classe détectée</p></li>
+</ul>
+<p>La <a class="reference external" href="https://www.youtube.com/watch?v=52H9oy993JY">vidéo de ce lien</a> te donne un aperçu de la réalisation de ces activités:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’activité peut être adaptée pour la recherche d’autres objets et sur d’autres types de terrains, par exemple le sol de ta classe, ou même un terrain en extérieur.</p>
 </div>
-<div class="section" id="lancer-le-serveur-cloudlink">
-<h2><span class="section-number">8.2. </span>Lancer le serveur CloudLink<a class="headerlink" href="#lancer-le-serveur-cloudlink" title="Permalink to this headline">¶</a></h2>
-<p>Pour pouvoir communiquer avec le FetchBot, il faut permettre à Scratch d’envoyer des messages à la carte Raspberry. Tu utiliseras</p>
-<p>Voir <span class="xref myst">../0_Getting_Started/CloudLink_Server</span></p>
 </div>
-<div class="section" id="connexion-au-fetchbot">
-<h2><span class="section-number">8.3. </span>Connexion au FetchBot<a class="headerlink" href="#connexion-au-fetchbot" title="Permalink to this headline">¶</a></h2>
-<p>Crée un nouveau projet dans Adacraft (voir activité 2), et tu te serviras de l’extension ‘CloudLink’ pour communiquer avec le rover</p>
+<div class="section" id="preparation">
+<h2><span class="section-number">8.2. </span>Préparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>Ton <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">rover est construit</span></a>, et tu y es <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">connecté avec VNC viewer</span></a> depuis un ordinateur ou une tablette.</p>
+<p>Il te faudra ensuite choisir un objet que le rover devra retrouver, et délimiter une zone dans laquelle le rover devra rechercher cet objet. Pour l’objet, tu peux choisir un tube, un crayon, un tournevis, ou autre. Pour la zone de recherche, tu peux imprimer un <a class="reference external" href="https://www.esa.int/ESA_Multimedia/Images/2019/12/Mars_terrain">sol martien</a> au format A0, ou sinon délimiter une zone avec du ruban adhésif. Tu pourras ajouter dans la zone des obstacles à éviter (cailloux, boites, ou autre).</p>
+</div>
+<div class="section" id="creation-du-modele-de-reconnaissance-d-images">
+<h2><span class="section-number">8.3. </span>Création du modèle de reconnaissance d’images<a class="headerlink" href="#creation-du-modele-de-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="faire-parler-le-sprite">
+<h2><span class="section-number">8.4. </span>Faire parler le sprite<a class="headerlink" href="#faire-parler-le-sprite" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="controle-avec-la-reconnaissance-d-images">
-<h2><span class="section-number">8.4. </span>Contrôle avec la reconnaissance d’images<a class="headerlink" href="#controle-avec-la-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5. </span>Contrôle avec la reconnaissance d’images<a class="headerlink" href="#controle-avec-la-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
+<p>Crée un nouveau projet dans Adacraft (voir activité 2), et tu te serviras de l’extension ‘CloudLink’ pour communiquer avec le rover</p>
 <a class="reference internal image-reference" href="../../_images/Adacraft_1_IR_Rover_Control_Blocks.jpg"><img alt="../../_images/Adacraft_1_IR_Rover_Control_Blocks.jpg" src="../../_images/Adacraft_1_IR_Rover_Control_Blocks.jpg" style="width: 600px;" /></a>
-</div>
-<div class="section" id="notes-sur-les-objectifs-pedagogiques">
-<h2><span class="section-number">8.5. </span>Notes sur les objectifs pédagogiques<a class="headerlink" href="#notes-sur-les-objectifs-pedagogiques" title="Permalink to this headline">¶</a></h2>
-<p>Référentiel FMTTN:</p>
-<ol class="simple">
-<li><p>Lire un algorithme simple</p></li>
-<li><p>Écrire un algorithme simple</p></li>
-<li><p>Lire un programme simple</p></li>
-<li><p>Écrire un programme simple</p></li>
-<li><p>Identifier des éléments relatifs à la programmation et aux logigrammes.|</p></li>
-</ol>
 </div>
 </div>
 
