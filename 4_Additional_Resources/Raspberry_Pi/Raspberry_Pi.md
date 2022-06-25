@@ -9,7 +9,7 @@ Cette fiche vise à prendre en main le Raspberry Pi, et à le préparer pour les
 
 Si vous n'avez jamais utilisé de Raspberry Pi, nous vous recommandons de commencer par suivre l'activité [Premiers pas avec le Raspberry Pi](https://projects.raspberrypi.org/fr-FR/projects/raspberry-pi-getting-started/0) de la fondation Raspberry. Un schéma d'un Raspberry 4 est donnée ci-dessous:
 
-<img src="images/pi-labelled-names.png" width="900"/> 
+<img src="images/pi-labelled-names.png" width="500"/> 
 
 L'activité 'Premiers pas avec le Raspberry Pi' vous permettra de:
 
@@ -31,9 +31,6 @@ La capture d'écran ci-dessous montre l'interface VNC connectée à un RPi (vers
 
 <img src="images/vnc_astropi.jpg" width="900"/> 
 
-
-* Voir https://www.ionos.fr/digitalguide/serveur/configuration/mise-en-place-dun-vnc-sur-raspberry-pi/
-* Client pour Mac: https://www.tweaking4all.com/os-tips-and-tricks/macosx-tips-and-tricks/best-vnc-client-macos-x/
 
 ## Installation des logiciels
 
