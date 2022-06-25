@@ -11,8 +11,6 @@ Construis un rover martien avec une carte Raspberry Pi et programme-le avec des 
 <img src="images/fetch-rover.jpg" alt="drawing" width="600"></img>
 
 
-**! En cours de construction !**
-
 ## Public ciblé
 
 * A partir de **10 ans** pour les activités de reconnaissance d'images, construction du robot, et **programmation en Scratch**.
