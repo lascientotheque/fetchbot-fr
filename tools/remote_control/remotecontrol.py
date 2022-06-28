@@ -18,7 +18,7 @@ import flask
 
 
 # Set motor speed
-motor_speed=0.5
+motor_speed=0.25
 
 
 # In[ ]:

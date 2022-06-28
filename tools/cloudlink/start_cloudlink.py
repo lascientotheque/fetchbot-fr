@@ -36,13 +36,13 @@ def on_packet(message):
     print(message['val'])
     
     if message['val']=="forward":
-        motor_control.forward(speed=0.5, duration=0.5)
+        motor_control.forward(speed=0.25, duration=0.5)
     
     if message['val']=="left":
-        motor_control.turn_left(speed=0.5, duration=0.5)
+        motor_control.turn_left(speed=0.25, duration=0.5)
 
     if message['val']=="right":
-        motor_control.turn_right(speed=0.5, duration=0.5)
+        motor_control.turn_right(speed=0.25, duration=0.5)
 
 def on_connect(client):
     print("New client connected:", client["id"])
