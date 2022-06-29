@@ -333,13 +333,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#faire-parler-le-sprite">
-   8.4. Faire parler le sprite
+  <a class="reference internal nav-link" href="#faire-dire-au-sprite-ce-que-le-modele-reconnait">
+   8.4. Faire dire au sprite ce que le modèle reconnaît
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#controle-avec-la-reconnaissance-d-images">
-   8.5. Contrôle avec la reconnaissance d’images
+  <a class="reference internal nav-link" href="#controle-du-rover-avec-la-reconnaissance-d-images">
+   8.5. Contrôle du rover avec la reconnaissance d’images
   </a>
  </li>
 </ul>
@@ -390,30 +390,62 @@ const thebe_selector_output = ".output, .cell_output"
 <p>L’activité se compose de trois parties principales:</p>
 <ul class="simple">
 <li><p>Créer un modèle de reconnaissance d’images capable de détecter 3 types de classes: le sol dégagé, les obstacles, et les tubes</p></li>
-<li><p>Utiliser le modèle de reconnaissance d’images dans un programme Scratch pour faire dire au sprite de rover la classe détectée (comme dnas l’activité 2)</p></li>
-<li><p>Rajouter à ce programme Scratch l’envoi de commandes au rover en fonction de la classe détectée</p></li>
+<li><p>Utiliser le modèle de reconnaissance d’images dans un programme Scratch pour faire dire au sprite de rover la classe détectée (comme dans l’activité 2)</p></li>
+<li><p>Rajouter à ce programme Scratch l’envoi de commandes au rover en fonction de la classe détectée.</p></li>
 </ul>
-<p>La <a class="reference external" href="https://www.youtube.com/watch?v=52H9oy993JY">vidéo de ce lien</a> te donne un aperçu de la réalisation de ces activités:</p>
+<p>La <a class="reference external" href="https://www.youtube.com/watch?v=52H9oy993JY">vidéo de ce lien</a> te donne un aperçu de la réalisation de ces activités.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>L’activité peut être adaptée pour la recherche d’autres objets et sur d’autres types de terrains, par exemple le sol de ta classe, ou même un terrain en extérieur.</p>
+<p>L’activité peut être adaptée pour la recherche d’autres objets (crayon, pièce de légo, …) et sur d’autres types de terrains, par exemple le sol de ta classe, ou même un terrain en extérieur.</p>
 </div>
 </div>
 <div class="section" id="preparation">
 <h2><span class="section-number">8.2. </span>Préparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <p>Ton <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">rover est construit</span></a>, et tu y es <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">connecté avec VNC viewer</span></a> depuis un ordinateur ou une tablette.</p>
-<p>Il te faudra ensuite choisir un objet que le rover devra retrouver, et délimiter une zone dans laquelle le rover devra rechercher cet objet. Pour l’objet, tu peux choisir un tube, un crayon, un tournevis, ou autre. Pour la zone de recherche, tu peux imprimer un <a class="reference external" href="https://www.esa.int/ESA_Multimedia/Images/2019/12/Mars_terrain">sol martien</a> au format A0, ou sinon délimiter une zone avec du ruban adhésif. Tu pourras ajouter dans la zone des obstacles à éviter (cailloux, boites, ou autre).</p>
+<p>Il te faudra ensuite choisir un objet que le rover devra retrouver, et délimiter une zone dans laquelle le rover devra rechercher cet objet. Pour l’objet, tu peux choisir un tube, un crayon, une pièce de légo, ou autre. Pour la zone de recherche, tu peux imprimer un <a class="reference external" href="https://www.esa.int/ESA_Multimedia/Images/2019/12/Mars_terrain">sol martien</a> au format A0 ou sous forme de tapis, ou sinon délimiter une zone avec du ruban adhésif. Tu pourras ajouter dans la zone des obstacles à éviter (cailloux, boites, ou autre).</p>
 </div>
 <div class="section" id="creation-du-modele-de-reconnaissance-d-images">
 <h2><span class="section-number">8.3. </span>Création du modèle de reconnaissance d’images<a class="headerlink" href="#creation-du-modele-de-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
+<p>La création du modèle suit le même principe que celui décrit dans <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition/Image_Recognition.html#image-recognition"><span class="std std-ref">l’activité 1 - Reconnaissance d’images avec la Teachable Machine</span></a>. Il te faudra ici prendre des exemples d’images pour trois classes:</p>
+<ul class="simple">
+<li><p>le sol dégagé: classe ‘sol’. Les exemples peuvent inclure ici toute partie de la zone où le robot peut avancer, c’est à dire qui ne contient ni obstacle, ni tube.</p></li>
+<li><p>les obstacles: classe ‘obstacle’. Les exemples peuvent inclure ici toute partie de la zone où le robot est face à un obstacle, comme un bord, un autre robot, ou des objets à éviter comme des cailloux.</p></li>
+<li><p>le tube à retrouver: classe ‘tube’. Les exemples peuvent inlcure ici toute partie de la zone où le robot est devant un tube.</p></li>
+</ul>
+<p>Ouvre un projet d’images dans la Teachable Machine, et crée trois catégories ‘Sol’, ‘Obstacle’, et ‘Tube’.</p>
+<a class="reference internal image-reference" href="../../_images/TM_Classes.jpg"><img alt="../../_images/TM_Classes.jpg" src="../../_images/TM_Classes.jpg" style="width: 800px;" /></a>
+<p>Pour chaque classe, il est en général suffisant de prendre une vingtaine d’exemples. Essaye de varier au maximum les exemples que tu prends (angle ou distance par rapport à un obstacle ou un tube, luminosité, reflet sur le sol, etc…).</p>
+<p>La <a class="reference external" href="https://www.youtube.com/watch?v=52H9oy993JY">vidéo ici</a> (partie ‘Training’, de 1’13 à 3’53) te montre comment faire cela en pratique.</p>
+<p>Après avoir pris une vingtaine d’exemples pour chaque classe, entraîne le modèle. Tu peux ensuite tester si le modèle reconnaît correctement les trois classes. L’interface devrait de la Teachable Machine devrait ressembler à ceci:</p>
+<a class="reference internal image-reference" href="../../_images/TM_Examples.jpg"><img alt="../../_images/TM_Examples.jpg" src="../../_images/TM_Examples.jpg" style="width: 800px;" /></a>
+<p>Ici, un tube est devant la caméra, et le modèle reconnaît correctement (classe ‘Tube’ détectée à 100%).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est plus facile d’être deux pour prendre les exemples d’images des trois classes: un pour déplacer le rover dans la zone, et l’autre pour prendre les photos sur la Teachable Machine.</p>
 </div>
-<div class="section" id="faire-parler-le-sprite">
-<h2><span class="section-number">8.4. </span>Faire parler le sprite<a class="headerlink" href="#faire-parler-le-sprite" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="controle-avec-la-reconnaissance-d-images">
-<h2><span class="section-number">8.5. </span>Contrôle avec la reconnaissance d’images<a class="headerlink" href="#controle-avec-la-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
-<p>Crée un nouveau projet dans Adacraft (voir activité 2), et tu te serviras de l’extension ‘CloudLink’ pour communiquer avec le rover</p>
-<a class="reference internal image-reference" href="../../_images/Adacraft_1_IR_Rover_Control_Blocks.jpg"><img alt="../../_images/Adacraft_1_IR_Rover_Control_Blocks.jpg" src="../../_images/Adacraft_1_IR_Rover_Control_Blocks.jpg" style="width: 600px;" /></a>
+<div class="section" id="faire-dire-au-sprite-ce-que-le-modele-reconnait">
+<h2><span class="section-number">8.4. </span>Faire dire au sprite ce que le modèle reconnaît<a class="headerlink" href="#faire-dire-au-sprite-ce-que-le-modele-reconnait" title="Permalink to this headline">¶</a></h2>
+<p>Tu peux maintenant utiliser le modèle dans Adacraft et faire dire au sprite ce qu’il reconnaît. Le principe est le même que celui décrit dans <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Scratch/Image_Recognition_Scratch.html#ir-scratch"><span class="std std-ref">l’activité 2</span></a>. Tu as ici trois classes, donc une troisième condition à ajouter dans le logigramme:</p>
+<a class="reference internal image-reference" href="../../_images/Algorithm_1_ImageRecognition.jpg"><img alt="../../_images/Algorithm_1_ImageRecognition.jpg" src="../../_images/Algorithm_1_ImageRecognition.jpg" style="width: 500px;" /></a>
+<p>Voici le programme à obtenir:</p>
+<a class="reference internal image-reference" href="../../_images/Adacraft_1_IR_Blocks.jpg"><img alt="../../_images/Adacraft_1_IR_Blocks.jpg" src="../../_images/Adacraft_1_IR_Blocks.jpg" style="width: 600px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Attention: Dans le bloc “Sélectionner et initialiser le modèle dont l’URL est …”, c’est l’URL du modèle que tu as créé qu’il faut mettre!</p>
+</div>
+<p>Le programme se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Adacraft_Scratch</span></code> et s’appelle <code class="docutils literal notranslate"><span class="pre">FetchBot_IR_Scratch.sb3</span></code>.</p>
+</div>
+<div class="section" id="controle-du-rover-avec-la-reconnaissance-d-images">
+<h2><span class="section-number">8.5. </span>Contrôle du rover avec la reconnaissance d’images<a class="headerlink" href="#controle-du-rover-avec-la-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
+<p>Il ne te reste plus qu’à programmer comment contrôler rover en fonction de que la caméra détecte. Modifie le programme pour</p>
+<ul class="simple">
+<li><p>Faire avancer le rover si la classe détectée est le sol</p></li>
+<li><p>Faire tourner le rover à gauche si la classe détectée est un obstacle.</p></li>
+</ul>
+<p>Quel est le logigramme de ce programme?</p>
+<p>Le contrôle du rover utilise l’extension CloudLink comme vu dans <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch.html#fetchbot-control-scratch"><span class="std std-ref">l’activité 5</span></a>. Voici le programme avec l’ajout des commandes de contrôle:</p>
+<a class="reference internal image-reference" href="../../_images/Adacraft_2_Control_IR_Blocks.jpg"><img alt="../../_images/Adacraft_2_Control_IR_Blocks.jpg" src="../../_images/Adacraft_2_Control_IR_Blocks.jpg" style="width: 600px;" /></a>
 </div>
 </div>
 
