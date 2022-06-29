@@ -75,7 +75,7 @@ Les activités 5 et 6 sont indépendantes, mais nécessitent d'avoir fait l'acti
 
 La troisième partie consistera à **utiliser le modèle de reconnaissance d'image sur le rover**, pour permettre à celui-ci de retrouver de façon autonome des tubes dans son environnement. Nous proposons un sol martien à imprimer, de façon à rendre l'activité proche de ce qu'un rover martien pourra voir une fois à destination! 
 
-Ce sont les activités 7 à 9:
+Ce sont les activités 7 et 8:
 
 Numéro activité | Activité | Age | Temps estimé
  :--- | :--- | :--- | :--- 
