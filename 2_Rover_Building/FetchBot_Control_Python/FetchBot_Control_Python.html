@@ -303,40 +303,45 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparation">
+   6.1. Préparation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#broches-de-controle">
-   6.1. Broches de contrôle
+   6.2. Broches de contrôle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#faire-avancer-le-robot">
-   6.2. Faire avancer le robot
+   6.3. Faire avancer le robot
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tester-le-code">
-     6.2.1. Tester le code
+     6.3.1. Tester le code
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fais-tourner-le-robot">
-   6.3. Fais tourner le robot
+   6.4. Fais tourner le robot
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#utilise-des-fonctions-pour-controler-le-robot">
-   6.4. Utilise des fonctions pour contrôler le robot
+   6.5. Utilise des fonctions pour contrôler le robot
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pour-aller-plus-loin">
-   6.5. Pour aller plus loin
+   6.6. Pour aller plus loin
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ressources-complementaires">
-   6.6. Ressources complémentaires
+   6.7. Ressources complémentaires
   </a>
  </li>
 </ul>
@@ -351,7 +356,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="controle-du-fetchbot-avec-python">
-<h1><span class="section-number">6. </span>Contrôle du FetchBot avec Python<a class="headerlink" href="#controle-du-fetchbot-avec-python" title="Permalink to this headline">¶</a></h1>
+<span id="fetchbot-control-python"></span><h1><span class="section-number">6. </span>Contrôle du FetchBot avec Python<a class="headerlink" href="#controle-du-fetchbot-avec-python" title="Permalink to this headline">¶</a></h1>
 <p><strong>Objectif:</strong> Faire déplacer le FetchBot avec Python.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -380,8 +385,12 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
+<div class="section" id="preparation">
+<h2><span class="section-number">6.1. </span>Préparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>Ton <a class="reference internal" href="../Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">rover est construit</span></a>, et tu y es <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">connecté avec VNC viewer</span></a> depuis un ordinateur ou une tablette.</p>
+</div>
 <div class="section" id="broches-de-controle">
-<h2><span class="section-number">6.1. </span>Broches de contrôle<a class="headerlink" href="#broches-de-controle" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Broches de contrôle<a class="headerlink" href="#broches-de-controle" title="Permalink to this headline">¶</a></h2>
 <p>La carte contrôleur de moteur EduKit prend la sortie de certaines broches GPIO (General Purpose Input/Output) du Raspberry Pi et fait tourner les moteurs en avant ou en arrière selon que ces broches sont activées ou désactivées. La carte contrôleur est un type de contrôleur appelé “H Bridge”. Wikipedia propose un bon article sur <a class="reference external" href="https://fr.wikipedia.org/wiki/Pont_en_H">le pont en H </a> si tu veux en savoir plus.</p>
 <p>La carte contrôleur de moteur EduKit utilise deux broches pour contrôler le moteur gauche et deux broches pour contrôler le moteur droit. Les broches GPIO 9 et 10 contrôlent le moteur A (le moteur de droite), et les broches 7 et 8 contrôlent le moteur B (le moteur de gauche).</p>
 <a class="reference internal image-reference" href="../../_images/GPIOpins.jpg"><img alt="GPIOpins" src="../../_images/GPIOpins.jpg" style="width: 500px;" /></a>
@@ -390,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Le moteur de gauche utilise la broche GPIO 8 pour le faire tourner en avant et la broche GPIO 7 pour le faire tourner en arrière</p>
 </div>
 <div class="section" id="faire-avancer-le-robot">
-<h2><span class="section-number">6.2. </span>Faire avancer le robot<a class="headerlink" href="#faire-avancer-le-robot" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Faire avancer le robot<a class="headerlink" href="#faire-avancer-le-robot" title="Permalink to this headline">¶</a></h2>
 <p>Ouvre l’éditeur Python Thonny, et créé un nouveau fichier en cliquant sur l’icône ‘+’. Copie le code ci-dessous:</p>
 <p>Remarque: Tous les textes après les ‘#” sont des commentaires, et tu n’es pas obligé de les recopier. Ils aident cependant à comprendre ce que fait le code.</p>
 <div class="cell docutils container">
@@ -418,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Sauvegarde le fichier sous le nom ‘1-rover-forward.py’.</p>
 <div class="section" id="tester-le-code">
-<h3><span class="section-number">6.2.1. </span>Tester le code<a class="headerlink" href="#tester-le-code" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>Tester le code<a class="headerlink" href="#tester-le-code" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Avant d’exécuter le code, allume la batterie.</p>
@@ -432,7 +441,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="fais-tourner-le-robot">
-<h2><span class="section-number">6.3. </span>Fais tourner le robot<a class="headerlink" href="#fais-tourner-le-robot" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Fais tourner le robot<a class="headerlink" href="#fais-tourner-le-robot" title="Permalink to this headline">¶</a></h2>
 <p>Pour faire tourner le robot, il suffit de ne faire avancer qu’un moteur:</p>
 <ul class="simple">
 <li><p>Pour faire tourner le robot à gauche, stoppe le moteur gauche et fais tourner le moteur droit:</p></li>
@@ -498,7 +507,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="utilise-des-fonctions-pour-controler-le-robot">
-<h2><span class="section-number">6.4. </span>Utilise des fonctions pour contrôler le robot<a class="headerlink" href="#utilise-des-fonctions-pour-controler-le-robot" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>Utilise des fonctions pour contrôler le robot<a class="headerlink" href="#utilise-des-fonctions-pour-controler-le-robot" title="Permalink to this headline">¶</a></h2>
 <p>Le code ci-dessus est un peu difficile à lire. Tu vas utiliser des fonctions pour faire avancer ou tourner le robot, et rendre le code plus clair.</p>
 <p>La fonction pour avancer sera appelée ‘forward’, et prendra comme paramètres la vitesse (speed) et la durée pendant laquelle faire avancer le robot (duration). Par défaut, on mettra les valeurs de 0.5 pour la vitesse, et de 1 seconde pour la durée.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">speed</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -647,11 +656,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Copie ce code dans le nouveau fichier ‘3-rover-control.py’ et teste-le.</p>
 </div>
 <div class="section" id="pour-aller-plus-loin">
-<h2><span class="section-number">6.5. </span>Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.6. </span>Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permalink to this headline">¶</a></h2>
 <p>Tu sais maintenant comment faire avancer ou tourner le FetchBot à différentes vitesses, et pour différentes durées. Expérimente avec différents parcours. Pourrais-tu faire le code qui permettrait au robot de faire un itinéraire en forme de carré?</p>
 </div>
 <div class="section" id="ressources-complementaires">
-<h2><span class="section-number">6.6. </span>Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7. </span>Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/CamJam-EduKit/EduKit3/blob/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%203%20(GPIO%20Zero)%20-%20Running%20the%20Motors.pdf">Documentation CamJam EduKit pour le contrôle des moteurs - Introduction</a></p></li>
 <li><p><a class="reference external" href="https://github.com/CamJam-EduKit/EduKit3/blob/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%203%20(GPIO%20Zero)%20-%20Running%20the%20Motors.pdf">Documentation CamJam EduKit pour le contrôle des moteurs - Faire tourner le robot</a></p></li>

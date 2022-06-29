@@ -364,14 +364,14 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>Un FetchBot et un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Prérequis</p></td>
-<td class="text-align:left"><p>1. Connaissances de bases de Scratch (voir <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Scratch/Image_Recognition_Scratch.html#image-recognition-scratch"><span class="std std-ref">Activité 2 - Reconnaissance d’images avec Scratch</span></a>)<br> 2. Avoir pris en main le Raspberry Pi, et savoir s’y connecter avec VNC viewer (voir <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">Raspberry Pi: Prise en main et préparation</span></a>)<br> 3. Avoir construit le FetchBot (voir <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">Activité 4 - Construction du rover</span></a>)<br> 4. Avoir programmé le FetchBot pour le faire se déplacer (voir <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch.html#fetchbot-control-scratch"><span class="std std-ref">Activité 6 - Contrôle du FetchBot avec Scratch</span></a>)</p></td>
+<td class="text-align:left"><p>1. Connaissances de bases de Scratch (voir <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Scratch/Image_Recognition_Scratch.html#image-recognition-scratch"><span class="std std-ref">Activité 2 - Reconnaissance d’images avec Scratch</span></a>)<br> 2. Avoir pris en main le Raspberry Pi, et savoir s’y connecter avec VNC viewer (voir <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">Raspberry Pi: Prise en main et préparation</span></a>)<br> 3. Avoir construit le FetchBot (voir <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">Activité 4 - Construction du rover</span></a>)<br> 4. Avoir programmé le FetchBot pour le faire se déplacer (voir <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch.html#fetchbot-control-scratch"><span class="std std-ref">Activité 5 - Contrôle du FetchBot avec Scratch</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="apercu">
 <h2><span class="section-number">7.1. </span>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
 <p>Dans cette activité, tu vas programmer le FetchBot pour le faire explorer un terrain et retrouver un objet. On utilisera comme exemple ici la recherche d’un tube sur un sol martien, comme ce que devra faire le rover Fetch sur mars. Tu utiliseras la reconnaissance d’images pour contrôler ce que fais le rover: Faire avancer le robot lorsque le terrain est dégagé, le faire tourner lorsqu’il rencontre un obstacle, et le faire s’arrêter lorsqu’il trouve le tube.</p>
-<a class="reference internal image-reference" href="../../_images/Fetchbot_Moving.gif"><img alt="../../_images/Fetchbot_Moving.gif" src="../../_images/Fetchbot_Moving.gif" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Fetchbot_Moving1.gif"><img alt="../../_images/Fetchbot_Moving1.gif" src="../../_images/Fetchbot_Moving1.gif" style="width: 600px;" /></a>
 <p>L’activité se compose de trois parties principales:</p>
 <ul class="simple">
 <li><p>Créer un modèle de reconnaissance d’images capable de détecter 3 types de classes: le sol dégagé, les obstacles, et les tubes</p></li>
@@ -398,11 +398,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>le tube à retrouver: classe ‘tube’. Les exemples peuvent inlcure ici toute partie de la zone où le robot est devant un tube.</p></li>
 </ul>
 <p>Ouvre un projet d’images dans la Teachable Machine, et crée trois catégories ‘Sol’, ‘Obstacle’, et ‘Tube’.</p>
-<a class="reference internal image-reference" href="../../_images/TM_Classes.jpg"><img alt="../../_images/TM_Classes.jpg" src="../../_images/TM_Classes.jpg" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/TM_Classes1.jpg"><img alt="../../_images/TM_Classes1.jpg" src="../../_images/TM_Classes1.jpg" style="width: 800px;" /></a>
 <p>Pour chaque classe, il est en général suffisant de prendre une vingtaine d’exemples. Essaye de varier au maximum les exemples que tu prends (angle ou distance par rapport à un obstacle ou un tube, luminosité, reflet sur le sol, etc…).</p>
 <p>La <a class="reference external" href="https://www.youtube.com/watch?v=52H9oy993JY">vidéo ici</a> (partie ‘Training’, de 1’13 à 3’53) te montre comment faire cela en pratique.</p>
 <p>Après avoir pris une vingtaine d’exemples pour chaque classe, entraîne le modèle. Tu peux ensuite tester si le modèle reconnaît correctement les trois classes. L’interface devrait de la Teachable Machine devrait ressembler à ceci:</p>
-<a class="reference internal image-reference" href="../../_images/TM_Examples.jpg"><img alt="../../_images/TM_Examples.jpg" src="../../_images/TM_Examples.jpg" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/TM_Examples1.jpg"><img alt="../../_images/TM_Examples1.jpg" src="../../_images/TM_Examples1.jpg" style="width: 800px;" /></a>
 <p>Ici, un tube est devant la caméra, et le modèle reconnaît correctement (classe ‘Tube’ détectée à 100%).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

@@ -303,28 +303,28 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apercu">
+   8.1. Aperçu
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparation">
+   8.2. Préparation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creation-du-modele-de-reconnaissance-d-images">
+   8.3. Création du modèle de reconnaissance d’images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reconnaissance-d-image">
-   8.1. Reconnaissance d’image
+   8.4. Reconnaissance d’image
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#controle-le-rover-avec-la-reconnaissance-d-image">
-   8.2. Contrôle le rover avec la reconnaissance d’image
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aller-plus-loin">
-   8.3. Aller plus loin
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ressources-utiles">
-   8.4. Ressources utiles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notes-sur-les-objectifs-pedagogiques">
-   8.5. Notes sur les objectifs pédagogiques
+  <a class="reference internal nav-link" href="#controle-du-rover-avec-la-reconnaissance-d-image">
+   8.5. Contrôle du rover avec la reconnaissance d’image
   </a>
  </li>
 </ul>
@@ -340,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="controle-du-fetchbot-et-reconnaissance-d-images-avec-python">
 <h1><span class="section-number">8. </span>Contrôle du FetchBot et reconnaissance d’images avec Python<a class="headerlink" href="#controle-du-fetchbot-et-reconnaissance-d-images-avec-python" title="Permalink to this headline">¶</a></h1>
-<p><strong>Objectif:</strong> Faire déplacer le FetchBot avec Python.</p>
+<p><strong>Objectif:</strong> Faire déplacer le FetchBot avec Python en utilisant la reconnaissance d’images.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p></p></th>
@@ -352,7 +352,7 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>14 à 18 ans</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Notions abordées</p></td>
-<td class="text-align:left"><p>Robotique, programmation avec Python, condition, boucle.</p></td>
+<td class="text-align:left"><p>Intelligence artificielle, classification d’images, robotique, programmation avec Scratch, condition, boucle.</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Durée</p></td>
 <td class="text-align:left"><p>4 heures</p></td>
@@ -361,15 +361,56 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>Par groupe de 2</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Matériel</p></td>
-<td class="text-align:left"><p>Un FetchBot, Un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
+<td class="text-align:left"><p>Un FetchBot et un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Prérequis</p></td>
-<td class="text-align:left"><p>1. Connaissances de bases de Python (voir Activité 2 - Reconnaissance d’images avec Python)<br> 2. Avoir construit le FetchBot et s’y être connecté avec VNC viewer (voir Activité 4 - Construction du rover)</p></td>
+<td class="text-align:left"><p>1. Connaissances de bases de Python (voir Activité 3 - Reconnaissance d’images avec Python)<br> 2. Avoir pris en main le Raspberry Pi, et savoir s’y connecter avec VNC viewer (voir <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">Raspberry Pi: Prise en main et préparation</span></a>)<br> 3. Avoir construit le FetchBot (voir <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">Activité 4 - Construction du rover</span></a>)<br> 4. Avoir programmé le FetchBot pour le faire se déplacer (voir <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python.html#fetchbot-control-python"><span class="std std-ref">Activité 6 - Contrôle du FetchBot avec Python</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
+<div class="section" id="apercu">
+<h2><span class="section-number">8.1. </span>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
+<p>Dans cette activité, tu vas programmer le FetchBot pour le faire explorer un terrain et retrouver un objet. On utilisera comme exemple ici la recherche d’un tube sur un sol martien, comme ce que devra faire le rover Fetch sur mars. Tu utiliseras la reconnaissance d’images pour contrôler ce que fais le rover: Faire avancer le robot lorsque le terrain est dégagé, le faire tourner lorsqu’il rencontre un obstacle, et le faire s’arrêter lorsqu’il trouve le tube.</p>
+<a class="reference internal image-reference" href="../../_images/Fetchbot_Moving.gif"><img alt="../../_images/Fetchbot_Moving.gif" src="../../_images/Fetchbot_Moving.gif" style="width: 600px;" /></a>
+<p>L’activité se compose de trois parties principales:</p>
+<ul class="simple">
+<li><p>Créer un modèle de reconnaissance d’images capable de détecter 3 types de classes: le sol dégagé, les obstacles, et les tubes</p></li>
+<li><p>Utiliser le modèle de reconnaissance d’images dans un programme Scratch pour faire dire au sprite de rover la classe détectée (comme dans l’activité 2)</p></li>
+<li><p>Rajouter à ce programme Scratch l’envoi de commandes au rover en fonction de la classe détectée.</p></li>
+</ul>
+<p>La <a class="reference external" href="https://www.youtube.com/watch?v=52H9oy993JY">vidéo de ce lien</a> te donne un aperçu de la réalisation de ces activités.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’activité peut être adaptée pour la recherche d’autres objets (crayon, pièce de légo, …) et sur d’autres types de terrains, par exemple le sol de ta classe, ou même un terrain en extérieur.</p>
+</div>
+</div>
+<div class="section" id="preparation">
+<h2><span class="section-number">8.2. </span>Préparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>Ton <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">rover est construit</span></a>, et tu y es <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">connecté avec VNC viewer</span></a> depuis un ordinateur ou une tablette.</p>
+<p>Il te faudra ensuite choisir un objet que le rover devra retrouver, et délimiter une zone dans laquelle le rover devra rechercher cet objet. Pour l’objet, tu peux choisir un tube, un crayon, une pièce de légo, ou autre. Pour la zone de recherche, tu peux imprimer un <a class="reference external" href="https://www.esa.int/ESA_Multimedia/Images/2019/12/Mars_terrain">sol martien</a> au format A0 ou sous forme de tapis, ou sinon délimiter une zone avec du ruban adhésif. Tu pourras ajouter dans la zone des obstacles à éviter (cailloux, boites, ou autre).</p>
+</div>
+<div class="section" id="creation-du-modele-de-reconnaissance-d-images">
+<h2><span class="section-number">8.3. </span>Création du modèle de reconnaissance d’images<a class="headerlink" href="#creation-du-modele-de-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
+<p>La création du modèle suit le même principe que celui décrit dans <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition/Image_Recognition.html#image-recognition"><span class="std std-ref">l’activité 1 - Reconnaissance d’images avec la Teachable Machine</span></a>. Il te faudra ici prendre des exemples d’images pour trois classes:</p>
+<ul class="simple">
+<li><p>le sol dégagé: classe ‘sol’. Les exemples peuvent inclure ici toute partie de la zone où le robot peut avancer, c’est à dire qui ne contient ni obstacle, ni tube.</p></li>
+<li><p>les obstacles: classe ‘obstacle’. Les exemples peuvent inclure ici toute partie de la zone où le robot est face à un obstacle, comme un bord, un autre robot, ou des objets à éviter comme des cailloux.</p></li>
+<li><p>le tube à retrouver: classe ‘tube’. Les exemples peuvent inlcure ici toute partie de la zone où le robot est devant un tube.</p></li>
+</ul>
+<p>Ouvre un projet d’images dans la Teachable Machine, et crée trois catégories ‘Sol’, ‘Obstacle’, et ‘Tube’.</p>
+<a class="reference internal image-reference" href="../../_images/TM_Classes.jpg"><img alt="../../_images/TM_Classes.jpg" src="../../_images/TM_Classes.jpg" style="width: 800px;" /></a>
+<p>Pour chaque classe, il est en général suffisant de prendre une vingtaine d’exemples. Essaye de varier au maximum les exemples que tu prends (angle ou distance par rapport à un obstacle ou un tube, luminosité, reflet sur le sol, etc…).</p>
+<p>La <a class="reference external" href="https://www.youtube.com/watch?v=52H9oy993JY">vidéo ici</a> (partie ‘Training’, de 1’13 à 3’53) te montre comment faire cela en pratique.</p>
+<p>Après avoir pris une vingtaine d’exemples pour chaque classe, entraîne le modèle. Tu peux ensuite tester si le modèle reconnaît correctement les trois classes. L’interface devrait de la Teachable Machine devrait ressembler à ceci:</p>
+<a class="reference internal image-reference" href="../../_images/TM_Examples.jpg"><img alt="../../_images/TM_Examples.jpg" src="../../_images/TM_Examples.jpg" style="width: 800px;" /></a>
+<p>Ici, un tube est devant la caméra, et le modèle reconnaît correctement (classe ‘Tube’ détectée à 100%).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est plus facile d’être deux pour prendre les exemples d’images des trois classes: un pour déplacer le rover dans la zone, et l’autre pour prendre les photos sur la Teachable Machine.</p>
+</div>
+</div>
 <div class="section" id="reconnaissance-d-image">
-<h2><span class="section-number">8.1. </span>Reconnaissance d’image<a class="headerlink" href="#reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Reconnaissance d’image<a class="headerlink" href="#reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
@@ -445,17 +486,9 @@ Je reconnais la classe &#39;Other&#39;
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Release camera</span>
-<span class="n">camera_object</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="controle-le-rover-avec-la-reconnaissance-d-image">
-<h2><span class="section-number">8.2. </span>Contrôle le rover avec la reconnaissance d’image<a class="headerlink" href="#controle-le-rover-avec-la-reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="controle-du-rover-avec-la-reconnaissance-d-image">
+<h2><span class="section-number">8.5. </span>Contrôle du rover avec la reconnaissance d’image<a class="headerlink" href="#controle-du-rover-avec-la-reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
@@ -503,38 +536,6 @@ Je reconnais la classe &#39;Other&#39;
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Release camera</span>
-<span class="n">camera_object</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="aller-plus-loin">
-<h2><span class="section-number">8.3. </span>Aller plus loin<a class="headerlink" href="#aller-plus-loin" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Ajoute des classes avec des images de flèches vers la droite ou la gauche pour faire tourner la tortue à droite ou à gauche</p></li>
-<li><p>Fais un classificateur qui utilise l’image de tube sur sol martien, et pour faire avancer la tortue si aucun tube n’est détecté, et fais s’arrêter la tortue lorsqu’un tube est détecté</p></li>
-</ul>
-</div>
-<div class="section" id="ressources-utiles">
-<h2><span class="section-number">8.4. </span>Ressources utiles<a class="headerlink" href="#ressources-utiles" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Documentation pour la tortue Python: https://docs.python.org/fr/3/library/turtle.html</p></li>
-</ul>
-</div>
-<div class="section" id="notes-sur-les-objectifs-pedagogiques">
-<h2><span class="section-number">8.5. </span>Notes sur les objectifs pédagogiques<a class="headerlink" href="#notes-sur-les-objectifs-pedagogiques" title="Permalink to this headline">¶</a></h2>
-<p>Référentiel FMTTN:</p>
-<ol class="simple">
-<li><p>Lire un algorithme simple</p></li>
-<li><p>Écrire un algorithme simple</p></li>
-<li><p>Lire un programme simple</p></li>
-<li><p>Écrire un programme simple</p></li>
-<li><p>Identifier des éléments relatifs à la programmation et aux logigrammes.|</p></li>
-</ol>
 </div>
 </div>
 
