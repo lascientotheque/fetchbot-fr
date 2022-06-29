@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Contrôle du FetchBot et reconnaissance d’images avec Scratch &#8212; Rover martien intelligent FetchBot</title>
+    <title>7. Contrôle du FetchBot et reconnaissance d’images avec Scratch &#8212; Rover martien intelligent FetchBot</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fetch-rover-small.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9. Contrôle du FetchBot et reconnaissance d’images avec Python" href="../FetchBot_Control_IR_Python/FetchBot_Control_IR_Python.html" />
-    <link rel="prev" title="7. FetchBot avec caméra" href="../Camera_Setup/Camera_Setup.html" />
+    <link rel="next" title="8. Contrôle du FetchBot et reconnaissance d’images avec Python" href="../FetchBot_Control_IR_Python/FetchBot_Control_IR_Python.html" />
+    <link rel="prev" title="6. Contrôle du FetchBot avec Python" href="../../2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -149,19 +149,14 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../Camera_Setup/Camera_Setup.html">
-   7. FetchBot avec caméra
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   8. Contrôle du FetchBot et reconnaissance d’images avec Scratch
+   7. Contrôle du FetchBot et reconnaissance d’images avec Scratch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../FetchBot_Control_IR_Python/FetchBot_Control_IR_Python.html">
-   9. Contrôle du FetchBot et reconnaissance d’images avec Python
+   8. Contrôle du FetchBot et reconnaissance d’images avec Python
   </a>
  </li>
 </ul>
@@ -173,37 +168,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html">
-   10. Raspberry Pi: Prise en main et préparation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_Additional_Resources/Python_Notebook.html">
-   11. Python Notebook
+   9. Raspberry Pi: Prise en main et préparation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Fetch_Mission_Engineer.html">
-   12. Ingénieur mission Fetch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_Additional_Resources/Remote_Control/Remote_Control.html">
-   13. Télécommande sur page Web
+   10. Ingénieur mission Fetch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Rover_Alternatives.html">
-   14. Alternatives de rover
+   11. Alternatives de rover
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/FAQ.html">
-   15. FAQ
+   12. FAQ
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Troubleshooting.html">
-   16. Dépannage
+   13. Dépannage
   </a>
  </li>
 </ul>
@@ -319,27 +304,27 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#apercu">
-   8.1. Aperçu
+   7.1. Aperçu
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#preparation">
-   8.2. Préparation
+   7.2. Préparation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creation-du-modele-de-reconnaissance-d-images">
-   8.3. Création du modèle de reconnaissance d’images
+   7.3. Création du modèle de reconnaissance d’images
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#faire-dire-au-sprite-ce-que-le-modele-reconnait">
-   8.4. Faire dire au sprite ce que le modèle reconnaît
+   7.4. Faire dire au sprite ce que le modèle reconnaît
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#controle-du-rover-avec-la-reconnaissance-d-images">
-   8.5. Contrôle du rover avec la reconnaissance d’images
+   7.5. Contrôle du rover avec la reconnaissance d’images
   </a>
  </li>
 </ul>
@@ -354,7 +339,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="controle-du-fetchbot-et-reconnaissance-d-images-avec-scratch">
-<h1><span class="section-number">8. </span>Contrôle du FetchBot et reconnaissance d’images avec Scratch<a class="headerlink" href="#controle-du-fetchbot-et-reconnaissance-d-images-avec-scratch" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Contrôle du FetchBot et reconnaissance d’images avec Scratch<a class="headerlink" href="#controle-du-fetchbot-et-reconnaissance-d-images-avec-scratch" title="Permalink to this headline">¶</a></h1>
 <p><strong>Objectif:</strong> Faire déplacer le FetchBot avec Scratch en utilisant la reconnaissance d’images.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -384,7 +369,7 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 <div class="section" id="apercu">
-<h2><span class="section-number">8.1. </span>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
 <p>Dans cette activité, tu vas programmer le FetchBot pour le faire explorer un terrain et retrouver un objet. On utilisera comme exemple ici la recherche d’un tube sur un sol martien, comme ce que devra faire le rover Fetch sur mars. Tu utiliseras la reconnaissance d’images pour contrôler ce que fais le rover: Faire avancer le robot lorsque le terrain est dégagé, le faire tourner lorsqu’il rencontre un obstacle, et le faire s’arrêter lorsqu’il trouve le tube.</p>
 <a class="reference internal image-reference" href="../../_images/Fetchbot_Moving.gif"><img alt="../../_images/Fetchbot_Moving.gif" src="../../_images/Fetchbot_Moving.gif" style="width: 600px;" /></a>
 <p>L’activité se compose de trois parties principales:</p>
@@ -400,12 +385,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="preparation">
-<h2><span class="section-number">8.2. </span>Préparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Préparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <p>Ton <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">rover est construit</span></a>, et tu y es <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">connecté avec VNC viewer</span></a> depuis un ordinateur ou une tablette.</p>
 <p>Il te faudra ensuite choisir un objet que le rover devra retrouver, et délimiter une zone dans laquelle le rover devra rechercher cet objet. Pour l’objet, tu peux choisir un tube, un crayon, une pièce de légo, ou autre. Pour la zone de recherche, tu peux imprimer un <a class="reference external" href="https://www.esa.int/ESA_Multimedia/Images/2019/12/Mars_terrain">sol martien</a> au format A0 ou sous forme de tapis, ou sinon délimiter une zone avec du ruban adhésif. Tu pourras ajouter dans la zone des obstacles à éviter (cailloux, boites, ou autre).</p>
 </div>
 <div class="section" id="creation-du-modele-de-reconnaissance-d-images">
-<h2><span class="section-number">8.3. </span>Création du modèle de reconnaissance d’images<a class="headerlink" href="#creation-du-modele-de-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Création du modèle de reconnaissance d’images<a class="headerlink" href="#creation-du-modele-de-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
 <p>La création du modèle suit le même principe que celui décrit dans <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition/Image_Recognition.html#image-recognition"><span class="std std-ref">l’activité 1 - Reconnaissance d’images avec la Teachable Machine</span></a>. Il te faudra ici prendre des exemples d’images pour trois classes:</p>
 <ul class="simple">
 <li><p>le sol dégagé: classe ‘sol’. Les exemples peuvent inclure ici toute partie de la zone où le robot peut avancer, c’est à dire qui ne contient ni obstacle, ni tube.</p></li>
@@ -425,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="faire-dire-au-sprite-ce-que-le-modele-reconnait">
-<h2><span class="section-number">8.4. </span>Faire dire au sprite ce que le modèle reconnaît<a class="headerlink" href="#faire-dire-au-sprite-ce-que-le-modele-reconnait" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4. </span>Faire dire au sprite ce que le modèle reconnaît<a class="headerlink" href="#faire-dire-au-sprite-ce-que-le-modele-reconnait" title="Permalink to this headline">¶</a></h2>
 <p>Tu peux maintenant utiliser le modèle dans Adacraft et faire dire au sprite ce qu’il reconnaît. Le principe est le même que celui décrit dans <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Scratch/Image_Recognition_Scratch.html#ir-scratch"><span class="std std-ref">l’activité 2</span></a>. Tu as ici trois classes, donc une troisième condition à ajouter dans le logigramme:</p>
 <a class="reference internal image-reference" href="../../_images/Algorithm_1_ImageRecognition.jpg"><img alt="../../_images/Algorithm_1_ImageRecognition.jpg" src="../../_images/Algorithm_1_ImageRecognition.jpg" style="width: 500px;" /></a>
 <p>Voici le programme à obtenir:</p>
@@ -437,7 +422,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Le programme se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Adacraft_Scratch</span></code> et s’appelle <code class="docutils literal notranslate"><span class="pre">FetchBot_IR_Scratch.sb3</span></code>.</p>
 </div>
 <div class="section" id="controle-du-rover-avec-la-reconnaissance-d-images">
-<h2><span class="section-number">8.5. </span>Contrôle du rover avec la reconnaissance d’images<a class="headerlink" href="#controle-du-rover-avec-la-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.5. </span>Contrôle du rover avec la reconnaissance d’images<a class="headerlink" href="#controle-du-rover-avec-la-reconnaissance-d-images" title="Permalink to this headline">¶</a></h2>
 <p>Il ne te reste plus qu’à programmer comment contrôler rover en fonction de que la caméra détecte. Modifie le programme pour</p>
 <ul class="simple">
 <li><p>Faire avancer le rover si la classe détectée est le sol</p></li>
@@ -446,6 +431,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Quel est le logigramme de ce programme?</p>
 <p>Le contrôle du rover utilise l’extension CloudLink comme vu dans <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Scratch/FetchBot_Control_Scratch.html#fetchbot-control-scratch"><span class="std std-ref">l’activité 5</span></a>. Voici le programme avec l’ajout des commandes de contrôle:</p>
 <a class="reference internal image-reference" href="../../_images/Adacraft_2_Control_IR_Blocks.jpg"><img alt="../../_images/Adacraft_2_Control_IR_Blocks.jpg" src="../../_images/Adacraft_2_Control_IR_Blocks.jpg" style="width: 600px;" /></a>
+<p>Le programme se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/Adacraft_Scratch</span></code> et s’appelle <code class="docutils literal notranslate"><span class="pre">FetchBot_Control_IR_Scratch.sb3</span></code>.</p>
 </div>
 </div>
 
@@ -474,17 +460,17 @@ const thebe_selector_output = ".output, .cell_output"
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../Camera_Setup/Camera_Setup.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../../2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>FetchBot avec caméra</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Contrôle du FetchBot avec Python</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../FetchBot_Control_IR_Python/FetchBot_Control_IR_Python.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Contrôle du FetchBot et reconnaissance d’images avec Python</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Contrôle du FetchBot et reconnaissance d’images avec Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

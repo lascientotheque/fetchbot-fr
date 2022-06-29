@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fetch-rover-small.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7. FetchBot avec caméra" href="../../3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html" />
+    <link rel="next" title="7. Contrôle du FetchBot et reconnaissance d’images avec Scratch" href="../../3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html" />
     <link rel="prev" title="5. Contrôle du FetchBot avec Scratch" href="../FetchBot_Control_Scratch/FetchBot_Control_Scratch.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -150,18 +150,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html">
-   7. FetchBot avec caméra
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../../3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html">
-   8. Contrôle du FetchBot et reconnaissance d’images avec Scratch
+   7. Contrôle du FetchBot et reconnaissance d’images avec Scratch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../3_Rover_Camera_Control/FetchBot_Control_IR_Python/FetchBot_Control_IR_Python.html">
-   9. Contrôle du FetchBot et reconnaissance d’images avec Python
+   8. Contrôle du FetchBot et reconnaissance d’images avec Python
   </a>
  </li>
 </ul>
@@ -173,37 +168,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html">
-   10. Raspberry Pi: Prise en main et préparation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_Additional_Resources/Python_Notebook.html">
-   11. Python Notebook
+   9. Raspberry Pi: Prise en main et préparation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Fetch_Mission_Engineer.html">
-   12. Ingénieur mission Fetch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_Additional_Resources/Remote_Control/Remote_Control.html">
-   13. Télécommande sur page Web
+   10. Ingénieur mission Fetch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Rover_Alternatives.html">
-   14. Alternatives de rover
+   11. Alternatives de rover
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/FAQ.html">
-   15. FAQ
+   12. FAQ
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Troubleshooting.html">
-   16. Dépannage
+   13. Dépannage
   </a>
  </li>
 </ul>
@@ -434,8 +419,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Sauvegarde le fichier sous le nom ‘1-rover-forward.py’.</p>
 <div class="section" id="tester-le-code">
 <h3><span class="section-number">6.2.1. </span>Tester le code<a class="headerlink" href="#tester-le-code" title="Permalink to this headline">¶</a></h3>
-<p>Remarque : Avant d’exécuter le code, allume la batterie.
-Remarque : place ton robot sur un support de manière à ce que les moteurs ne touchent pas le sol. Tu ne veux pas que ton robot tombe du bureau !</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Avant d’exécuter le code, allume la batterie.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Place ton robot sur un support de manière à ce que les moteurs ne touchent pas le sol. Tu ne veux pas que ton robot tombe du bureau !</p>
+</div>
 <p>Tu es maintenant prêt à exécuter le code. Clique sur le bouton ‘Run’ de l’éditeur Thonny. Si tu constates que le code ne s’exécute pas correctement, il se peut qu’il y ait une erreur dans le code que tu as tapé.</p>
 <p>Tu devrais maintenant voir les deux moteurs tourner en avant en même temps. Si un seul moteur tourne, vérifie ton câblage. Si l’un des moteurs tourne en arrière, intervertis les fils rouge et noir de ce moteur dans le bornier. Continue à tester le code jusqu’à ce que les fils soient à la bonne place.</p>
 </div>
@@ -568,8 +559,9 @@ Remarque : place ton robot sur un support de manière à ce que les moteurs ne t
 
 </pre></div>
 </div>
-<div class="highlight-{note}Pour notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour les fonctions permettant de tourner, le code a été modifié pour que les deux moteurs tournent de façon inverse, ce qui permettra au robot de tourner plus efficacement.</p>
 </div>
 <p>Dans l’éditeur Thonny, créée un nouveau fichier ‘motor_control.py’ et copie le code ci-dessous où les fonctions sont utilisées pour contrôler le FetchBot. Avec ces fonctions, tu peux écrire de façon plus claire la suite de déplacements que tu veux faire, par exemple, avancer pendant deux secondes à la vitesse 1, puis tourner à gauche pendant 3 secondes à la vitesse 0.5, puis avancer pendant 1 seconde à la vitesse 0.5.</p>
 <div class="cell docutils container">
@@ -700,10 +692,10 @@ Remarque : place ton robot sur un support de manière à ce que les moteurs ne t
             <p class="prev-next-title"><span class="section-number">5. </span>Contrôle du FetchBot avec Scratch</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html" title="next page">
+    <a class='right-next' id="next-link" href="../../3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>FetchBot avec caméra</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Contrôle du FetchBot et reconnaissance d’images avec Scratch</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

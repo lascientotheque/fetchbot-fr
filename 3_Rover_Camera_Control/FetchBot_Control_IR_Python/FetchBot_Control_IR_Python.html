@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9. Contrôle du FetchBot et reconnaissance d’images avec Python &#8212; Rover martien intelligent FetchBot</title>
+    <title>8. Contrôle du FetchBot et reconnaissance d’images avec Python &#8212; Rover martien intelligent FetchBot</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fetch-rover-small.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10. Raspberry Pi: Prise en main et préparation" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html" />
-    <link rel="prev" title="8. Contrôle du FetchBot et reconnaissance d’images avec Scratch" href="../FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html" />
+    <link rel="next" title="9. Raspberry Pi: Prise en main et préparation" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html" />
+    <link rel="prev" title="7. Contrôle du FetchBot et reconnaissance d’images avec Scratch" href="../FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -150,18 +150,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Camera_Setup/Camera_Setup.html">
-   7. FetchBot avec caméra
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html">
-   8. Contrôle du FetchBot et reconnaissance d’images avec Scratch
+   7. Contrôle du FetchBot et reconnaissance d’images avec Scratch
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   9. Contrôle du FetchBot et reconnaissance d’images avec Python
+   8. Contrôle du FetchBot et reconnaissance d’images avec Python
   </a>
  </li>
 </ul>
@@ -173,37 +168,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html">
-   10. Raspberry Pi: Prise en main et préparation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_Additional_Resources/Python_Notebook.html">
-   11. Python Notebook
+   9. Raspberry Pi: Prise en main et préparation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Fetch_Mission_Engineer.html">
-   12. Ingénieur mission Fetch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_Additional_Resources/Remote_Control/Remote_Control.html">
-   13. Télécommande sur page Web
+   10. Ingénieur mission Fetch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Rover_Alternatives.html">
-   14. Alternatives de rover
+   11. Alternatives de rover
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/FAQ.html">
-   15. FAQ
+   12. FAQ
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Troubleshooting.html">
-   16. Dépannage
+   13. Dépannage
   </a>
  </li>
 </ul>
@@ -319,27 +304,27 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reconnaissance-d-image">
-   9.1. Reconnaissance d’image
+   8.1. Reconnaissance d’image
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#controle-le-rover-avec-la-reconnaissance-d-image">
-   9.2. Contrôle le rover avec la reconnaissance d’image
+   8.2. Contrôle le rover avec la reconnaissance d’image
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aller-plus-loin">
-   9.3. Aller plus loin
+   8.3. Aller plus loin
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ressources-utiles">
-   9.4. Ressources utiles
+   8.4. Ressources utiles
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#notes-sur-les-objectifs-pedagogiques">
-   9.5. Notes sur les objectifs pédagogiques
+   8.5. Notes sur les objectifs pédagogiques
   </a>
  </li>
 </ul>
@@ -354,7 +339,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="controle-du-fetchbot-et-reconnaissance-d-images-avec-python">
-<h1><span class="section-number">9. </span>Contrôle du FetchBot et reconnaissance d’images avec Python<a class="headerlink" href="#controle-du-fetchbot-et-reconnaissance-d-images-avec-python" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Contrôle du FetchBot et reconnaissance d’images avec Python<a class="headerlink" href="#controle-du-fetchbot-et-reconnaissance-d-images-avec-python" title="Permalink to this headline">¶</a></h1>
 <p><strong>Objectif:</strong> Faire déplacer le FetchBot avec Python.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -384,7 +369,7 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 <div class="section" id="reconnaissance-d-image">
-<h2><span class="section-number">9.1. </span>Reconnaissance d’image<a class="headerlink" href="#reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Reconnaissance d’image<a class="headerlink" href="#reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
@@ -470,7 +455,7 @@ Je reconnais la classe &#39;Other&#39;
 </div>
 </div>
 <div class="section" id="controle-le-rover-avec-la-reconnaissance-d-image">
-<h2><span class="section-number">9.2. </span>Contrôle le rover avec la reconnaissance d’image<a class="headerlink" href="#controle-le-rover-avec-la-reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Contrôle le rover avec la reconnaissance d’image<a class="headerlink" href="#controle-le-rover-avec-la-reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
@@ -528,20 +513,20 @@ Je reconnais la classe &#39;Other&#39;
 </div>
 </div>
 <div class="section" id="aller-plus-loin">
-<h2><span class="section-number">9.3. </span>Aller plus loin<a class="headerlink" href="#aller-plus-loin" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Aller plus loin<a class="headerlink" href="#aller-plus-loin" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ajoute des classes avec des images de flèches vers la droite ou la gauche pour faire tourner la tortue à droite ou à gauche</p></li>
 <li><p>Fais un classificateur qui utilise l’image de tube sur sol martien, et pour faire avancer la tortue si aucun tube n’est détecté, et fais s’arrêter la tortue lorsqu’un tube est détecté</p></li>
 </ul>
 </div>
 <div class="section" id="ressources-utiles">
-<h2><span class="section-number">9.4. </span>Ressources utiles<a class="headerlink" href="#ressources-utiles" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Ressources utiles<a class="headerlink" href="#ressources-utiles" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Documentation pour la tortue Python: https://docs.python.org/fr/3/library/turtle.html</p></li>
 </ul>
 </div>
 <div class="section" id="notes-sur-les-objectifs-pedagogiques">
-<h2><span class="section-number">9.5. </span>Notes sur les objectifs pédagogiques<a class="headerlink" href="#notes-sur-les-objectifs-pedagogiques" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5. </span>Notes sur les objectifs pédagogiques<a class="headerlink" href="#notes-sur-les-objectifs-pedagogiques" title="Permalink to this headline">¶</a></h2>
 <p>Référentiel FMTTN:</p>
 <ol class="simple">
 <li><p>Lire un algorithme simple</p></li>
@@ -582,13 +567,13 @@ Je reconnais la classe &#39;Other&#39;
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8. </span>Contrôle du FetchBot et reconnaissance d’images avec Scratch</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Contrôle du FetchBot et reconnaissance d’images avec Scratch</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Raspberry Pi: Prise en main et préparation</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Raspberry Pi: Prise en main et préparation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

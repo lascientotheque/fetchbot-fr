@@ -79,12 +79,11 @@ Ce sont les activités 7 à 9:
 
 Numéro activité | Activité | Age | Temps estimé
  :--- | :--- | :--- | :--- 
-7 | FetchBot avec Caméra | 10-18 | 2-4h
-8 | Contrôle du FetchBot et reconnaissance d'images avec Scratch (Adacraft) | 10-14 | 2-4h
-9 | Contrôle du FetchBot et reconnaissance d'images avec Python | 14-18 | 2-4h
+7 | Contrôle du FetchBot et reconnaissance d'images avec Scratch (Adacraft) | 10-14 | 2-4h
+8 | Contrôle du FetchBot et reconnaissance d'images avec Python | 14-18 | 2-4h
 
 ```{note}
-Les activités 8 et 9 sont indépendantes, mais nécessitent d'avoir fait les activités précédentes (reconnaissance d'images, construction du rover, et d'avoir monté la caméra).
+Les activités 7 et 8 sont indépendantes, mais nécessitent d'avoir fait les activités précédentes (reconnaissance d'images et construction du rover).
 ```
 
 ## Objectifs pédagogiques 

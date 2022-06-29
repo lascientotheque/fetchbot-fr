@@ -150,18 +150,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../3_Rover_Camera_Control/Camera_Setup/Camera_Setup.html">
-   7. FetchBot avec caméra
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../../3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch.html">
-   8. Contrôle du FetchBot et reconnaissance d’images avec Scratch
+   7. Contrôle du FetchBot et reconnaissance d’images avec Scratch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../3_Rover_Camera_Control/FetchBot_Control_IR_Python/FetchBot_Control_IR_Python.html">
-   9. Contrôle du FetchBot et reconnaissance d’images avec Python
+   8. Contrôle du FetchBot et reconnaissance d’images avec Python
   </a>
  </li>
 </ul>
@@ -173,37 +168,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html">
-   10. Raspberry Pi: Prise en main et préparation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_Additional_Resources/Python_Notebook.html">
-   11. Python Notebook
+   9. Raspberry Pi: Prise en main et préparation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Fetch_Mission_Engineer.html">
-   12. Ingénieur mission Fetch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_Additional_Resources/Remote_Control/Remote_Control.html">
-   13. Télécommande sur page Web
+   10. Ingénieur mission Fetch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Rover_Alternatives.html">
-   14. Alternatives de rover
+   11. Alternatives de rover
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/FAQ.html">
-   15. FAQ
+   12. FAQ
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../4_Additional_Resources/Troubleshooting.html">
-   16. Dépannage
+   13. Dépannage
   </a>
  </li>
 </ul>
@@ -328,13 +313,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#construction-du-chassis">
-   4.3. Construction du châssis
+  <a class="reference internal nav-link" href="#chassis">
+   4.3. Châssis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#connexion-du-controleur-de-moteur-edukit-a-votre-pi">
-   4.4. Connexion du contrôleur de moteur EduKit à votre Pi
+  <a class="reference internal nav-link" href="#connexion-du-controleur-de-moteur-edukit-au-raspberry-pi">
+   4.4. Connexion du contrôleur de moteur EduKit au Raspberry Pi
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -353,18 +338,40 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#telecommander-le-rover">
-   4.8. Télécommander le rover
+  <a class="reference internal nav-link" href="#ajout-de-la-camera">
+   4.8. Ajout de la caméra
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connecter-le-module-camera">
+     4.8.1. Connecter le module caméra
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuration-dans-le-raspberry-pi">
+     4.8.2. Configuration dans le Raspberry Pi
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verifie-que-la-camera-fonctionne">
+     4.8.3. Vérifie que la caméra fonctionne
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#telecommande-le-rover">
+   4.9. Télécommande le rover
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#autres-ressources">
-   4.9. Autres ressources
+   4.10. Autres ressources
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#remerciements">
-   4.10. Remerciements
+   4.11. Remerciements
   </a>
  </li>
 </ul>
@@ -420,45 +427,67 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>La boule à roulette</p></li>
 <li><p>Du ruban adhésif double face pour coller les pièces au châssis - à découper selon les besoins.</p></li>
 </ul>
-<p>Matériel que vous devrez fournir vous-même :</p>
+<p>Ainsi que :</p>
 <ul class="simple">
-<li><p>Un Raspberry Pi</p></li>
+<li><p>Un Raspberry Pi et une caméra pour Raspberry Pi</p></li>
 <li><p>Une alimentation pour Raspberry Pi, ou une batterie de type chargeur de téléphone</p></li>
 <li><p>4 piles AA. Il est conseillé d’utiliser de bonnes piles, car certaines piles bon marché ne peuvent pas fournir le courant nécessaire pour faire fonctionner les moteurs.</p></li>
-<li><p>Un châssis (non fourni) - faites appel à votre imagination (également non fourni !)</p></li>
 <li><p>Un petit tournevis cruciforme</p></li>
+<li><p>Un châssis - faites appel à votre imagination (également non fourni !)</p></li>
 </ul>
 </div>
 <div class="section" id="apercu">
 <h2><span class="section-number">4.2. </span>Aperçu<a class="headerlink" href="#apercu" title="Permalink to this headline">¶</a></h2>
-<p>Dans cette première feuille de travail, vous allez rassembler les pièces de base et construire votre robot. Presque tout ce dont vous avez besoin a été fourni, à l’exception des quatre piles AA, qui sont faciles à trouver. Un châssis n’est pas non plus fourni, car cela vous priverait du plaisir de construire votre robot selon votre propre conception.</p>
-<p>La boîte dans laquelle votre EduKit 3 est arrivé peut cependant s’avérer utile !
-Si vous n’avez pas de batterie pour alimenter votre Raspberry Pi, votre robot sera ” attaché “, ce qui signifie que vous ne pourrez pas aller plus loin que le câble d’alimentation que vous utilisez pour alimenter votre Pi.</p>
+<p>Dans cette activité, tu vas assembler les pièces de base et construire le rover. La construction est très facile. Au plus simple, la boite du CamJam EduKit est utilisée comme chassis. Il s’agit de coller les moteurs sous la boîte, y attacher les roues, et placer la bille à l’avant, grâce à des scotchs fournis dans le kit. Pour le cablâge, les fils des moteurs et la batterie sont reliés au contrôleur moteur, que l’on place sur le Raspberry Pi dans la boîte. La caméra est finalement placée à l’avant.</p>
 </div>
-<div class="section" id="construction-du-chassis">
-<h2><span class="section-number">4.3. </span>Construction du châssis<a class="headerlink" href="#construction-du-chassis" title="Permalink to this headline">¶</a></h2>
-<p>Trouvez quelque chose qui servira de corps, ou de châssis, à votre robot. Décidez quel est le haut et quel est le bas, et retournez-le avec le bas vers le haut. Fixez les moteurs à une extrémité et la boule à roulettes à l’autre. Du ruban adhésif double face est fourni avec votre kit, mais pensez à le couper à la bonne taille avant de l’utiliser. La boule à roulettes
-est fournie avec des vis, vous pouvez donc la boulonner à votre châssis. Vous trouverez peut-être que le mastic de montage fonctionne bien pour vous, et vous permet de déplacer les moteurs et la boule à roulettes.</p>
-<p>Note: Les roues de votre robot se déplaceront mieux si la majeure partie du poids du Pi et des batteries se trouve sur les roues motrices.  Par conséquent, construisez le châssis de manière à ce que la majeure partie du poids se trouve au-dessus d’elles.</p>
+<div class="section" id="chassis">
+<h2><span class="section-number">4.3. </span>Châssis<a class="headerlink" href="#chassis" title="Permalink to this headline">¶</a></h2>
+<p>La simplicité du kit offre une large place à la créativité pour la construction du chassis. Quelques exemples de rovers construits avec le CamJam EduKit sont données ci-dessous, avec un chassis utilisant la boîte du kit, un chassis imprimé en 3D, ou l’utilisation d’une simple planche de bois.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="text-align:right head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><a class="reference internal" href="../../_images/CamJam_Box.jpg"><img alt="../../_images/CamJam_Box.jpg" src="../../_images/CamJam_Box.jpg" style="width: 230px;" /></a></p></td>
+<td><p><a class="reference internal" href="../../_images/CamJam_3DPrint.jpg"><img alt="../../_images/CamJam_3DPrint.jpg" src="../../_images/CamJam_3DPrint.jpg" style="width: 300px;" /></a></p></td>
+<td class="text-align:right"><p><a class="reference internal" href="../../_images/CamJam_Wood.png"><img alt="../../_images/CamJam_Wood.png" src="../../_images/CamJam_Wood.png" style="width: 350px;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><a href="https://www.youtube.com/watch?v=LJDEV7rGwaM">Chassis en carton (avec la boîte du CamJam EduKit)</a></p></td>
+<td><p><a href="https://camjam.me/?page_id=1035">Chassis en impression 3D</a></p></td>
+<td class="text-align:right"><p><a href="https://www.youtube.com/watch?v=LKTpj8QHWEc">Chassis en bois</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Après avoir décidé du châssis, fixe les moteurs à une extrémité et la boule à roulettes à l’autre. Du ruban adhésif double face peut être utilisé pour fixer les moteurs. La boule à roulettes est fournie avec des vis, tu peux donc la boulonner, ou la scotcher, à ton châssis.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les roues du rover se déplaceront mieux si la majeure partie du poids du Raspberry Pi et des batteries se trouve sur les roues motrices.  Par conséquent, construis le châssis de manière à ce que la majeure partie du poids se trouve au-dessus d’elles.</p>
+</div>
 <a class="reference internal image-reference" href="../../_images/Robot_underside.jpg"><img alt="../../_images/Robot_underside.jpg" src="../../_images/Robot_underside.jpg" style="width: 500px;" /></a>
 </div>
-<div class="section" id="connexion-du-controleur-de-moteur-edukit-a-votre-pi">
-<h2><span class="section-number">4.4. </span>Connexion du contrôleur de moteur EduKit à votre Pi<a class="headerlink" href="#connexion-du-controleur-de-moteur-edukit-a-votre-pi" title="Permalink to this headline">¶</a></h2>
-<p>Assurez-vous que votre Raspberry Pi est éteint avant d’y connecter quoi que ce soit. Branchez la carte contrôleur de moteur EduKit sur les broches GPIO de votre Pi, la partie principale de la carte contrôleur étant suspendue au-dessus du Pi, comme dans le schéma suivant :</p>
+<div class="section" id="connexion-du-controleur-de-moteur-edukit-au-raspberry-pi">
+<h2><span class="section-number">4.4. </span>Connexion du contrôleur de moteur EduKit au Raspberry Pi<a class="headerlink" href="#connexion-du-controleur-de-moteur-edukit-au-raspberry-pi" title="Permalink to this headline">¶</a></h2>
+<p>Assure-toi que ton Raspberry Pi est éteint avant d’y connecter quoi que ce soit. Branche la carte contrôleur de moteur EduKit sur les broches GPIO de ton Pi, la partie principale de la carte contrôleur étant suspendue au-dessus du Pi, comme dans le schéma suivant :</p>
 <a class="reference internal image-reference" href="../../_images/raspberry_edukit.jpg"><img alt="../../_images/raspberry_edukit.jpg" src="../../_images/raspberry_edukit.jpg" style="width: 500px;" /></a>
-<p>Une fois que vous êtes sûr de savoir comment il s’adapte à votre Pi, vous devez retirer la carte pour faciliter la connexion des fils pour les moteurs et la batterie.</p>
+<p>Une fois que tu es sûr de savoir comment il s’adapte à ton Pi, tu devras retirer la carte pour faciliter la connexion des fils pour les moteurs et la batterie.</p>
 </div>
 <div class="section" id="connexion-des-moteurs-et-du-boitier-de-batterie-a-la-carte-du-controleur-de-moteur-edukit">
 <h2><span class="section-number">4.5. </span>Connexion des moteurs et du boîtier de batterie à la carte du contrôleur de moteur EduKit<a class="headerlink" href="#connexion-des-moteurs-et-du-boitier-de-batterie-a-la-carte-du-controleur-de-moteur-edukit" title="Permalink to this headline">¶</a></h2>
-<p>Retournez le robot sur ses roues. Fixez votre Pi et le boîtier à piles (avec les piles insérées et éteintes) sur le dessus du châssis avec du ruban adhésif double face ou du mastic de montage. Connectez maintenant le boîtier de piles et les moteurs aux bornes à vis du contrôleur comme indiqué dans le schéma ci-dessous (le Pi n’est pas représenté pour plus de clarté). Le fil noir va à la borne marquée GND (masse) et le fil rouge va à la borne marquée VCC (tension). Remarque : Il est important de savoir dans quel sens passent les fils du boîtier de la batterie. Vous risquez d’endommager la carte du contrôleur de moteur EduKit si vous la connectez dans le mauvais sens, alors vérifiez le câblage avant d’allumer quoi que ce soit.</p>
-<p>Le robot que vous allez construire en suivant ces instructions a les moteurs pilotes à l’avant, et la roue à billes unique à l’arrière. Cependant, votre robot peut être différent.</p>
-<p>Connectez le moteur situé à droite du robot au bornier marqué Moteur A et le moteur situé à gauche au bornier marqué Moteur B. Il n’est pas important à ce stade de savoir quels fils du moteur entrent dans quelles bornes, car le câblage rouge/noir n’est pas garanti dans le même sens sur les moteurs, qui peuvent donc tourner dans le mauvais sens. Vous réparerez ce problème dans la prochaine feuille de travail.</p>
-<p>Connexion des moteurs et du boîtier de batterie à la carte du contrôleur de moteur EduKit (vue du dessus):</p>
+<p>Retourne le robot sur ses roues. Fixe ton Pi et le boîtier à piles (avec les piles insérées et éteintes) sur le dessus du châssis avec du ruban adhésif double face ou du mastic de montage. Connecte maintenant le boîtier de piles et les moteurs aux bornes à vis du contrôleur comme indiqué dans le schéma ci-dessous (le Pi n’est pas représenté pour plus de clarté).</p>
 <a class="reference internal image-reference" href="../../_images/motor_connection.jpg"><img alt="../../_images/motor_connection.jpg" src="../../_images/motor_connection.jpg" style="width: 600px;" /></a>
+<p>Le fil noir va à la borne marquée GND (masse) et le fil rouge va à la borne marquée VCC (tension). Remarque : Il est important de savoir dans quel sens passent les fils du boîtier de la batterie. Tu risques d’endommager la carte du contrôleur de moteur EduKit si tu la connecte dans le mauvais sens, alors vérifie le câblage avant d’allumer quoi que ce soit.</p>
+<p>Connecte le moteur situé à droite du robot au bornier marqué Moteur A et le moteur situé à gauche au bornier marqué Moteur B. Il n’est pas important à ce stade de savoir quels fils du moteur entrent dans quelles bornes, car le câblage rouge/noir n’est pas garanti dans le même sens sur les moteurs, qui peuvent donc tourner dans le mauvais sens. Tu réparereras ce problème lorsque tu testeras les moteurs.</p>
 </div>
 <div class="section" id="choix-d-une-batterie-pour-votre-pi-facultatif">
 <h2><span class="section-number">4.6. </span>Choix d’une batterie pour votre Pi (facultatif)<a class="headerlink" href="#choix-d-une-batterie-pour-votre-pi-facultatif" title="Permalink to this headline">¶</a></h2>
-<p>Afin de rendre votre Raspberry Pi mobile, vous devez l’alimenter avec une batterie portable. Vous pouvez utiliser plusieurs types de batteries, mais le plus simple est d’utiliser une batterie utilisée pour charger les téléphones portables. Elles doivent être capables de fournir suffisamment de courant pour le Pi (au moins 1A est recommandé), et avoir assez de puissance pour durer un temps raisonnable avant de s’épuiser. Vous trouverez un exemple de pack batterie sur le site Web de 4tronix : <a class="reference external" href="http://bit.ly/EduKitBattery">http://bit.ly/EduKitBattery</a>. Utilisez un câble USB standard vers microUSB pour connecter la batterie à votre Pi.</p>
+<p>Afin de rendre ton Raspberry Pi mobile, tu dois l’alimenter avec une batterie portable. Tu peux utiliser plusieurs types de batteries, mais le plus simple est d’utiliser une batterie pour charger les téléphones portables. Elles doivent être capables de fournir suffisamment de courant pour le Pi (au moins 1A est recommandé), et avoir assez de puissance pour durer un temps raisonnable avant de s’épuiser. Tu trouveras un exemple de pack batterie sur le site Web de 4tronix : <a class="reference external" href="http://bit.ly/EduKitBattery">http://bit.ly/EduKitBattery</a>. Utilise un câble USB standard vers microUSB pour connecter la batterie à votre Pi.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si tu n’as pas de batterie pour alimenter ton Raspberry Pi, ton robot sera ” attaché “, ce qui signifie que tu ne pourras pas aller plus loin que le câble d’alimentation que tu utilises pour alimenter ton Pi.</p>
+</div>
 </div>
 <div class="section" id="robot-termine">
 <h2><span class="section-number">4.7. </span>Robot terminé<a class="headerlink" href="#robot-termine" title="Permalink to this headline">¶</a></h2>
@@ -466,24 +495,79 @@ est fournie avec des vis, vous pouvez donc la boulonner à votre châssis. Vous 
 <p>Le robot de base est maintenant terminé.</p>
 <p>Dans la prochaine feuille de travail, vous apprendrez à faire tourner les roues et à les faire tourner dans la même direction en même temps.</p>
 <a class="reference internal image-reference" href="../../_images/completed_robot.jpg"><img alt="../../_images/completed_robot.jpg" src="../../_images/completed_robot.jpg" style="width: 600px;" /></a>
-<p>La construction du robot est très facile. Au plus simple, la boite du CamJam EduKit est utilisée comme chassis. Il s’agit de coller les moteurs sous la boîte, y attacher les roues, et placer la bille à l’avant, grâce à des scotchs fournis dans le kit. Pour le cablâge, les fils des moteurs et la batterie sont reliés au contrôleur moteur, que l’on place sur le Raspberry Pi dans la boîte. La caméra est finalement placée à l’avant.</p>
-<p>La simplicité du kit offre une large place à la créativité pour la construction du chassis. Quelques exemples de rovers construits avec le CamJam EduKit sont données ci-dessous, avec un chassis utilisant la boîte du kit, un chassis imprimé en 3D, ou l’utilisation d’une simple planche de bois.</p>
 </div>
-<div class="section" id="telecommander-le-rover">
-<h2><span class="section-number">4.8. </span>Télécommander le rover<a class="headerlink" href="#telecommander-le-rover" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ajout-de-la-camera">
+<h2><span class="section-number">4.8. </span>Ajout de la caméra<a class="headerlink" href="#ajout-de-la-camera" title="Permalink to this headline">¶</a></h2>
+<p>La caméra se place dans le port caméra du Raspberry Pi.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p></p></th>
+<th class="text-align:center head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><a class="reference internal" href="../../_images/pi4-camera-port.png"><img alt="../../_images/pi4-camera-port.png" src="../../_images/pi4-camera-port.png" style="width: 400px;" /></a></p></td>
+<td class="text-align:center"><p><a class="reference internal" href="../../_images/camera-module.png"><img alt="../../_images/camera-module.png" src="../../_images/camera-module.png" style="width: 300px;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Carte Raspberry Pi. Le port pour attacher la caméra<br> est indiqué par une flèche</p></td>
+<td class="text-align:center"><p>caméra Raspberry Pi</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="connecter-le-module-camera">
+<h3><span class="section-number">4.8.1. </span>Connecter le module caméra<a class="headerlink" href="#connecter-le-module-camera" title="Permalink to this headline">¶</a></h3>
+<p>Assure-toi que ton Raspberry Pi est éteint.</p>
+<ol class="simple">
+<li><p>Trouve le port du module caméra</p></li>
+<li><p>Tire doucement sur les bords du clip en plastique du port</p></li>
+<li><p>Insère la nappe caméra ; assure-toi que la nappe est dans le bon sens</p></li>
+<li><p>Remets le clip en plastique en place</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/connect-camera.gif"><img alt="../../_images/connect-camera.gif" src="../../_images/connect-camera.gif" style="width: 600px;" /></a>
+</div>
+<div class="section" id="configuration-dans-le-raspberry-pi">
+<h3><span class="section-number">4.8.2. </span>Configuration dans le Raspberry Pi<a class="headerlink" href="#configuration-dans-le-raspberry-pi" title="Permalink to this headline">¶</a></h3>
+<p>Démarre ton Raspberry Pi. Va dans le menu principal et ouvre l’outil <strong>Configuration du Raspberry Pi</strong>.</p>
+<a class="reference internal image-reference" href="../../_images/pi-configuration-menu.png"><img alt="../../_images/pi-configuration-menu.png" src="../../_images/pi-configuration-menu.png" style="width: 400px;" /></a>
+<p>Sélectionne l’onglet <strong>Interfaces</strong> et assure-toi que la caméra est <strong>activée</strong> :</p>
+<a class="reference internal image-reference" href="../../_images/pi-configuration-interfaces-annotated.png"><img alt="../../_images/pi-configuration-interfaces-annotated.png" src="../../_images/pi-configuration-interfaces-annotated.png" style="width: 500px;" /></a>
+<p>Redémarre ton Raspberry Pi.</p>
+</div>
+<div class="section" id="verifie-que-la-camera-fonctionne">
+<h3><span class="section-number">4.8.3. </span>Vérifie que la caméra fonctionne<a class="headerlink" href="#verifie-que-la-camera-fonctionne" title="Permalink to this headline">¶</a></h3>
+<p>Une fois le Raspberry Pi redémarré, tu peux aller sur le site de la <a class="reference external" href="https://teachablemachine.withgoogle.com/">Teachable Machine</a>. Créer un projet image, et lance la caméra pour prendre des photos et vérifier que la caméra fonctionne.</p>
+</div>
+</div>
+<div class="section" id="telecommande-le-rover">
+<h2><span class="section-number">4.9. </span>Télécommande le rover<a class="headerlink" href="#telecommande-le-rover" title="Permalink to this headline">¶</a></h2>
+<p>Tu peux vérifier que tout fonctionne sur le rover grâce à la télécommande Web. Il faut lancer le programme Python <code class="docutils literal notranslate"><span class="pre">remote_control.py</span></code>. Le programme se trouve dans le répertoire ‘tools/remote_control’ du <a class="reference external" href="https://github.com/lascientotheque/fetchbot-fr">dépôt GitHub</a>. Pour le lancer, ouvre un terminal de commande, puis va dans le répertoire ‘fetchbot-fr/tools/remote_control’ avec la commande</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">fetchbot</span><span class="o">-</span><span class="n">fr</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">remote_control</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si le répertoire n’existe pas, c’est que les fichiers du <a class="reference external" href="https://github.com/lascientotheque/fetchbot-fr">dépôt Github</a> se trouvent dans un autre répertoire que celui donné en exemple lors de <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#github-depot"><span class="std std-ref">la copie du dépôt GitHub</span></a>. Remplace le répertoire <code class="docutils literal notranslate"><span class="pre">fetchbot-fr</span></code> par celui où les fichier ont été téléchargés.</p>
+</div>
+<p>Lance ensuite le script <code class="docutils literal notranslate"><span class="pre">remote_control.py</span></code> avec la commande python</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">remote_control</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Tu peux ensuite ouvrir la page Web dans le navigateur à l’adresse <code class="docutils literal notranslate"><span class="pre">0.0.0.0:2204</span></code>.</p>
+<p>Pour quitter le programme, retourne dans le terminal de commande, et appuie sur les touches CTRL+C.</p>
 </div>
 <div class="section" id="autres-ressources">
-<h2><span class="section-number">4.9. </span>Autres ressources<a class="headerlink" href="#autres-ressources" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.10. </span>Autres ressources<a class="headerlink" href="#autres-ressources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://projects.raspberrypi.org/en/projects/build-a-buggy">Build a buggy project - Raspberry Pi Foundation</a></p></li>
 <li><p>https://gpiozero.readthedocs.io/en/stable/recipes.html</p></li>
 </ul>
 </div>
 <div class="section" id="remerciements">
-<h2><span class="section-number">4.10. </span>Remerciements<a class="headerlink" href="#remerciements" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.11. </span>Remerciements<a class="headerlink" href="#remerciements" title="Permalink to this headline">¶</a></h2>
 <p>Cette section reprend des éléments:</p>
 <ul class="simple">
 <li><p>du tutoriel <a class="reference external" href="https://github.com/CamJam-EduKit/EduKit3/blob/master/CamJam%20Edukit%203%20-%20GPIO%20Zero/CamJam%20EduKit%203%20-%20Robotics%20Worksheet%202%20(GPIO%20Zero)%20-%20Building%20a%20Robot.pdf">CamJam EdutKit</a></p></li>
+<li><p>du tutoriel <a class="reference external" href="https://projects.raspberrypi.org/fr-FR/projects/getting-started-with-picamera/0">de prise en main de la caméra Raspberry de la Raspberry Pi Foundation</a>.</p></li>
 </ul>
 </div>
 </div>
