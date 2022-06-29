@@ -16,7 +16,6 @@ parts:
 - caption: Contrôle intelligent du rover
   numbered: true
   chapters:
-  - file: 3_Rover_Camera_Control/Camera_Setup/Camera_Setup
   - file: 3_Rover_Camera_Control/FetchBot_Control_IR_Scratch/FetchBot_Control_IR_Scratch
   - file: 3_Rover_Camera_Control/FetchBot_Control_IR_Python/FetchBot_Control_IR_Python
 - caption: Ressources complémentaires
