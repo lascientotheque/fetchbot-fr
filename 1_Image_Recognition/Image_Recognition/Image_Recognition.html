@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -34,7 +34,7 @@
     
   <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -43,9 +43,9 @@
     <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/gtag_0.js"></script>
     <script src="../../_static/gtag_1.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
@@ -99,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Reconnaissance d'images
  </span>
@@ -121,7 +121,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Construction du rover
  </span>
@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Contrôle intelligent du rover
  </span>
@@ -160,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Ressources complémentaires
  </span>
@@ -323,8 +323,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemple-pour-un-classificateur-d-emotions">
-   1.5. Exemple pour un classificateur d’émotions
+  <a class="reference internal nav-link" href="#exemple-pour-un-classificateur-de-visages">
+   1.5. Exemple pour un classificateur de visages
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -412,7 +412,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>Dans le cas de la classification d’images, un modèle de prédiction est donc entrainé à reconnaître différentes classes d’images à partir d’un jeu de données d’apprentissage.</p>
 <p>L’outil que tu utiliseras ici pour entraîner le modèle d’apprentissage automatique est la Teachable Machine, qui permet d’entraîner facilement un modèle de reconnaissance d’images en prenant des photos depuis la webcam. Tu associeras les images à des classes que le modèle devra reconnaître. La création de ton modèle (l’entraînement) sera fait sur le cloud par un service de Google.</p>
-<p>Nous te montrerons deux exemples: la reconnaissance d’émotions sur un visage (sourire, grimace, ou neutre) et la détection d’objet sur un sol martien. Une fois que tu auras compris comment se passe l’entraînement d’un modèle, tu pourras créer d’autres applications de reconaissance, par exemple pour reconnaître des objects, des visages, etc…</p>
+<p>Nous te montrerons deux exemples: la reconnaissance de visages et la détection d’objet sur un sol martien. Une fois que tu auras compris comment se passe l’entraînement d’un modèle, tu pourras créer d’autres applications de reconnaissance, par exemple pour reconnaître des objects, des émotions sur un visage, etc…</p>
 <p>Ce tutoriel te montrera aussi comment tester ton ‘modèle’ sur de nouvelles images, et exporter ton modèle pour pouvoir l’utiliser dans un programme Scratch ou Python.</p>
 </div>
 <div class="section" id="teachable-machine">
@@ -438,40 +438,28 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="choix-des-classes">
 <h2><span class="section-number">1.4. </span>Choix des classes<a class="headerlink" href="#choix-des-classes" title="Permalink to this headline">¶</a></h2>
-<p>Le choix des classes dépend de ce que tu veux faire reconnaître à l’ordinateur. Nous allons ici te montrer deux exemples: Un classifieur qui reconnaît les émotions sur ton visage (par exemple, souriant, faché, ou neutre), et un classifieur capable de retrouver des tubes sur un sol martien (ce classifieur pourra servir plus tard pour les activités liées à Mars et à la construction d’un rover).</p>
-<p>Tu peux bien sûr entraîner ton classifieur à faire autre chose, comme reconnaître des objets, des fruits, ou ton visage et ceux de tes amis!</p>
+<p>Le choix des classes dépend de ce que tu veux faire reconnaître à l’ordinateur. Nous allons ici te montrer deux exemples: Un classifieur qui reconnaît des visages, et un classifieur capable de retrouver des tubes sur un sol martien (ce classifieur pourra servir plus tard pour les activités liées à Mars et à la construction d’un rover).</p>
+<p>Tu peux bien sûr entraîner ton classifieur à faire autre chose, comme reconnaître des objets, des fruits, ou des expressions de visages!</p>
 <p>Pour l’entraînement, prends au moins quelques dizaines d’images. Renomme les classes comme tu le souhaite en cliquant sur l’icône de crayon associé à chaque classe, puis appuie sur l’icône de caméra pour prendre différentes images de la classe correspondante.</p>
 <p>Lorsque tu cliqueras sur la caméra, il est possible que le navigateur Web te demande l’autorisation d’utiliser la caméra. Dans ce cas, autorise-le.</p>
 </div>
-<div class="section" id="exemple-pour-un-classificateur-d-emotions">
-<h2><span class="section-number">1.5. </span>Exemple pour un classificateur d’émotions<a class="headerlink" href="#exemple-pour-un-classificateur-d-emotions" title="Permalink to this headline">¶</a></h2>
-<p>Dans le cas d’un classifieur d’émotions, prends une cinquantaine d’images de trois catégories différentes: Sourire, faché et neutre. Des exemples de photos de chacune des trois classes sont donnés ci-dessous.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="text-align:right head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p><a class="reference internal" href="../../_images/smile.png"><img alt="../../_images/smile.png" src="../../_images/smile.png" style="width: 300px;" /></a></p></td>
-<td><p><a class="reference internal" href="../../_images/unhappy.png"><img alt="../../_images/unhappy.png" src="../../_images/unhappy.png" style="width: 300px;" /></a></p></td>
-<td class="text-align:right"><p><a class="reference internal" href="../../_images/neutral.png"><img alt="../../_images/neutral.png" src="../../_images/neutral.png" style="width: 300px;" /></a></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Exemple de classe: Sourire</p></td>
-<td><p>Exemple de classe: Faché</p></td>
-<td class="text-align:right"><p>Exemple de classe: Neutre</p></td>
-</tr>
-</tbody>
-</table>
-<p>Une fois que tu as renommé les trois classes et que tu as pris des images pour chacune des trois classes, l’interface ressemblera à ceci:</p>
+<div class="section" id="exemple-pour-un-classificateur-de-visages">
+<h2><span class="section-number">1.5. </span>Exemple pour un classificateur de visages<a class="headerlink" href="#exemple-pour-un-classificateur-de-visages" title="Permalink to this headline">¶</a></h2>
+<p>Dans le cas d’un classifieur de visages, prenez une vingtaine d’images pour chacun des visages à reconnaître. Ici, les élèves peuvent faire l’activité par deux, avec deux classes correspondant à leurs deux visages. Les noms des deux classes sont les noms des deux élèves.</p>
+<p>Veillez ici à prendre des exemples aussi variés que possibles (position du visage par rapport à la caméra, conditions d’éclairage, fond de l’image) afin de rendre le système de reconnaissance le plus fiable possible.
+Une fois qu’une vingtaine d’images ont été prises pour chacun des deux visages, l’interface ressemblera à ceci:</p>
 <a class="reference internal image-reference" href="../../_images/TM_5_Emotions.jpg"><img alt="../../_images/TM_5_Emotions.jpg" src="../../_images/TM_5_Emotions.jpg" style="width: 900px;" /></a>
 </div>
 <div class="section" id="entrainement-et-test-du-modele">
 <h2><span class="section-number">1.6. </span>Entraînement et test du modèle<a class="headerlink" href="#entrainement-et-test-du-modele" title="Permalink to this headline">¶</a></h2>
 <p>Clique ensuite sur “Entraînement”. Cela prend en général moins d’une minute pour que l’entraînement se termine. Une fois celui-ci terminé, la partie de droite ‘Aperçu’ t’affichera l’image provenant de la webcam, et te permettra de tester ton modèle.</p>
 <a class="reference internal image-reference" href="../../_images/TM_6_Emotions.jpg"><img alt="../../_images/TM_6_Emotions.jpg" src="../../_images/TM_6_Emotions.jpg" style="width: 900px;" /></a>
-<p>Tu pourras remarquer que le modèle de prédiction fonctionnera moins bien si tu t’approche ou t’éloigne de la webcam, ou si les conditions d’éclaraige ou l’arrière-plan changent. Afin de rendre ton modèle le plus fiable possible, assure-toi de prendre des exemples assez variés (en te approchant ou t’éloignant de la caméra, et en utilisant des arrière-plans différents).</p>
+<p>Questions à poser :</p>
+<ul class="simple">
+<li><p>Que se passe-t-il si aucun visage n’est présent, ou le visage d’un autre élève ?</p></li>
+<li><p>Que se passe-t-il lorsque les deux visages sont présents à la caméra ?</p></li>
+</ul>
+<p>On peut voir que le système n’ayant appris que deux classes correspondant à deux visages, il essaiera toujours d’associer ce qu’il perçoit à l’un des deux visages, même si ceux-ci ne sont pas présents (ou qu’il sont présents tous les deux). Pour améliorer le système, d’autres classes peuvent être ajoutées (par exemple une classe ‘autre’, contenant des exemples avec aucun visage, ou des deux visages en même temps).</p>
 </div>
 <div class="section" id="exportation-du-modele">
 <h2><span class="section-number">1.7. </span>Exportation du modèle<a class="headerlink" href="#exportation-du-modele" title="Permalink to this headline">¶</a></h2>
@@ -500,12 +488,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Le second exemple que nous te donnons a pour but de faire un classifieur capable de dire si un tube est présent sur un sol martien. On distingue donc deux classes: Soit l’image perçue par la caméra contient un échantillon (un tube contenant des poussières de sol martien), soit elle n’en contient pas. Nous appellerons la première classe “Tube”, et la seconde classe “Autre”.</p>
 <p>Pour faire l’entraînement, imprime au préalable l’image ci-dessous. On y voit un tube posé sur un sol martien (le tube est à peu près au centre).</p>
 <a class="reference internal image-reference" href="../../_images/martian-soil-with-tube.jpg"><img alt="../../_images/martian-soil-with-tube.jpg" src="../../_images/martian-soil-with-tube.jpg" style="width: 900px;" /></a>
+<p>Note : Plutôt que l’image de sol martien avec le tube, vous pouvez utiliser directement un objet que vous avez à portée de main, tel qu’un crayon, une boîte, ou autre.</p>
 <p>Les étapes sont ensuite les même que précédemment, pour entraîner, tester et exporter le modèle.</p>
 <p>Pour l’entraînement, définis deux classes: ‘Tube’ et ‘Autre’. Pour la classe’ Autre’, ajoute des photos avec la webcam de parties de l’image où seul le sol est présent pour la classe sol, ou des photos de toi devant la caméra. Pour la classe ‘Tube’, prends des photos de l’image imprimée sur lesquelles le tube est visible. Une fois les photos prises pour les deux classes, tu devrais obtenir un jeu de données tel que celui illustré ci-dessous:</p>
 <a class="reference internal image-reference" href="../../_images/TM_5_Tube_Other.jpg"><img alt="../../_images/TM_5_Tube_Other.jpg" src="../../_images/TM_5_Tube_Other.jpg" style="width: 900px;" /></a>
 <p>Lance ensuite l’entraînement en cliquant sur le bouton ‘Entraînement’. Une fois celui-ci terminé (environ une minute), tu peux tester ton modèle en déplaçant la feuille devant la webcam. Vérifie que le modèle reconnaît correctement la présence du tube:</p>
 <a class="reference internal image-reference" href="../../_images/TM_6_Tube_Other.jpg"><img alt="../../_images/TM_6_Tube_Other.jpg" src="../../_images/TM_6_Tube_Other.jpg" style="width: 900px;" /></a>
-<p>Tu peux exporter ton modèle pour une utilisation vers Adacraft (Scratch) ou Python de la même manière que celle décrite ci-dessus pour la reconnaissance d’émotions.</p>
+<p>Tu peux exporter ton modèle pour une utilisation vers Adacraft (Scratch) ou Python de la même manière que celle décrite ci-dessus pour la reconnaissance de visages.</p>
 </div>
 <div class="section" id="ressources-complementaires">
 <h2><span class="section-number">1.9. </span>Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Permalink to this headline">¶</a></h2>
