@@ -398,7 +398,7 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>Un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Prérequis</p></td>
-<td class="text-align:left"><p>1. Connaissances de bases de Python et <span class="xref myst">Annexe x: utilisation de Python dans un notebook</span><br> 2. Avoir créé un modèle de reconnaissance d’image avec la Teachable Machine de Google <a class="reference internal" href="../Image_Recognition/Image_Recognition.html#image-recognition"><span class="std std-ref">(Activité 1 - Reconnaissance d’images avec la Teachable Machine)</span></a></p></td>
+<td class="text-align:left"><p>1. Connaissances de bases de Python <br> 2. Avoir créé un modèle de reconnaissance d’image avec la Teachable Machine de Google <a class="reference internal" href="../Image_Recognition/Image_Recognition.html#image-recognition"><span class="std std-ref">(Activité 1 - Reconnaissance d’images avec la Teachable Machine)</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -477,15 +477,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Il faut libérer la caméra pour qu’elle puisse être réutilisée dans d’autre programme! Utilise cette instruction pour libérer la caméra.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Release camera</span>
-<span class="n">camera_object</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>L’image apparaît dans une fenêtre du programme ‘GPicView’.</p>
 </div>
 <div class="section" id="classification-de-l-image">
 <h2><span class="section-number">3.3. </span>Classification de l’image<a class="headerlink" href="#classification-de-l-image" title="Permalink to this headline">¶</a></h2>
@@ -505,7 +497,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id1">
 <h3><span class="section-number">3.3.2. </span>Classification de l’image<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p><strong>Ajout algorigramme</strong></p>
+<p>Pour la classification d’image, nous allons reprendre le code pour prendre une image avec la caméra, et y ajouter le fait de prédire à quelle classe appartient l’image. Trois ajouts sont à faire</p>
+<ol class="simple">
+<li><p>Charger (initialiser) le modèle de reconnaissance d’images</p></li>
+<li><p>Lancer la détection d’image prise de la webcam</p></li>
+<li><p>Afficher “Je reconnais la classe ‘Forward’” si la classe est ‘Forward’, et afficher “Je reconnais la classe ‘Other’” si la classe est ‘Other’</p></li>
+</ol>
+<p>Enfin, on placera une boucle pour répéter la détection d’image et l’affichage. L’algorithme est donné ci dessous:</p>
+<a class="reference internal image-reference" href="../../_images/Algorithm_1_ImageRecognition1.jpg"><img alt="Algorithm_1_ImageRecognition" src="../../_images/Algorithm_1_ImageRecognition1.jpg" style="width: 500px;" /></a>
+<p>Et voici la traduction en langage Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
@@ -547,18 +547,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Release camera</span>
-<span class="n">camera_object</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Tu peux copier le code ci-dessus dans Thonny, et le lancer. Tu verras à chaque nouvelle seconde s’afficher la classe reconnue par le modèle.</p>
 </div>
 </div>
 <div class="section" id="controle-la-tortue-avec-la-reconnaissance-d-image">
 <h2><span class="section-number">3.4. </span>Contrôle la tortue avec la reconnaissance d’image<a class="headerlink" href="#controle-la-tortue-avec-la-reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
+<p>Tu vas maintenant modifier le programme pour faire avancer la tortue de 10 pixels quand la classe est ‘Forward’. Il te suffit de rajouter la commande <code class="docutils literal notranslate"><span class="pre">my_turtle.forward(10)</span></code> lorsque la classe détectée est forward. Voici l’algorithme correspondant:</p>
+<a class="reference internal image-reference" href="../../_images/Algorithm_2_ImageRecognition_Turtle.jpg"><img alt="Algorithm_2_ImageRecognition_Turtle" src="../../_images/Algorithm_2_ImageRecognition_Turtle.jpg" style="width: 500px;" /></a>
+<p>Et la traduction en langage Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
@@ -595,27 +591,25 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="c1"># If prediction is class 0, class is &#39;Forward&#39;</span>
     <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Forward&#39;&quot;</span><span class="p">)</span>
         <span class="n">my_turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
         
-    
+    <span class="c1"># If prediction is class 1, class is &#39;Other&#39;</span>
+    <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Other&#39;&quot;</span><span class="p">)</span>
+   
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Release camera</span>
-<span class="n">camera_object</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Tu peux copier le code ci-dessus dans Thonny, et le lancer. Tu verras à chaque nouvelle seconde s’afficher la classe reconnue par le modèle, et la tortue avancer de 10 pixels quand la classe est ‘Forward’.</p>
 </div>
 <div class="section" id="aller-plus-loin">
 <h2><span class="section-number">3.5. </span>Aller plus loin<a class="headerlink" href="#aller-plus-loin" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Ajoute des classes avec des images de flèches vers la droite ou la gauche pour faire tourner la tortue à droite ou à gauche</p></li>
-<li><p>Fais un classificateur qui utilise l’image de tube sur sol martien, et pour faire avancer la tortue si aucun tube n’est détecté, et fais s’arrêter la tortue lorsqu’un tube est détecté</p></li>
+<li><p>Ajoute des classes avec des images de flèches vers la droite ou la gauche pour faire tourner la tortue à droite ou à gauche.</p></li>
+<li><p>Fais un classificateur qui utilise l’image de tube sur sol martien, et pour faire avancer la tortue si aucun tube n’est détecté, et fais s’arrêter la tortue lorsqu’un tube est détecté.</p></li>
 </ul>
 </div>
 <div class="section" id="ressources-utiles">

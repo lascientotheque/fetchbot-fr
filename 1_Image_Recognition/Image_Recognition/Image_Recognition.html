@@ -445,19 +445,19 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="exemple-pour-un-classificateur-de-visages">
 <h2><span class="section-number">1.5. </span>Exemple pour un classificateur de visages<a class="headerlink" href="#exemple-pour-un-classificateur-de-visages" title="Permalink to this headline">¶</a></h2>
-<p>Dans le cas d’un classifieur de visages, prenez une vingtaine d’images pour chacun des visages à reconnaître. Ici, les élèves peuvent faire l’activité par deux, avec deux classes correspondant à leurs deux visages. Les noms des deux classes sont les noms des deux élèves.</p>
-<p>Veillez ici à prendre des exemples aussi variés que possibles (position du visage par rapport à la caméra, conditions d’éclairage, fond de l’image) afin de rendre le système de reconnaissance le plus fiable possible.
-Une fois qu’une vingtaine d’images ont été prises pour chacun des deux visages, l’interface ressemblera à ceci:</p>
+<p>Dans le cas d’un classifieur de visages, prends une vingtaine d’images pour chacun des visages à reconnaître. Ici, le mieux est de faire l’activité par deux, avec deux classes: Une classe pour ton visage, et l’autre classe pour le visage de celui avec qui tu fais l’activité. Pour les noms des classes, utilise simplement ton nom et celui de ton/ta camarade.</p>
+<p>Veille ici à prendre des exemples aussi variés que possibles (position du visage par rapport à la caméra, conditions d’éclairage, fond de l’image) afin de rendre le système de reconnaissance le plus fiable possible.
+Une fois qu’une vingtaine d’images ont été prises pour chacun de vos deux visages, l’interface ressemblera à ceci:</p>
 <a class="reference internal image-reference" href="../../_images/TM_5_Emotions.jpg"><img alt="../../_images/TM_5_Emotions.jpg" src="../../_images/TM_5_Emotions.jpg" style="width: 900px;" /></a>
 </div>
 <div class="section" id="entrainement-et-test-du-modele">
 <h2><span class="section-number">1.6. </span>Entraînement et test du modèle<a class="headerlink" href="#entrainement-et-test-du-modele" title="Permalink to this headline">¶</a></h2>
 <p>Clique ensuite sur “Entraînement”. Cela prend en général moins d’une minute pour que l’entraînement se termine. Une fois celui-ci terminé, la partie de droite ‘Aperçu’ t’affichera l’image provenant de la webcam, et te permettra de tester ton modèle.</p>
 <a class="reference internal image-reference" href="../../_images/TM_6_Emotions.jpg"><img alt="../../_images/TM_6_Emotions.jpg" src="../../_images/TM_6_Emotions.jpg" style="width: 900px;" /></a>
-<p>Questions à poser :</p>
+<p>Questions à te poser :</p>
 <ul class="simple">
-<li><p>Que se passe-t-il si aucun visage n’est présent, ou le visage d’un autre élève ?</p></li>
-<li><p>Que se passe-t-il lorsque les deux visages sont présents à la caméra ?</p></li>
+<li><p>Que se passe-t-il si aucun visage n’est présent, ou le visage de quelqu’un d’autre ?</p></li>
+<li><p>Que se passe-t-il lorsque vos deux visages sont présents à la caméra ?</p></li>
 </ul>
 <p>On peut voir que le système n’ayant appris que deux classes correspondant à deux visages, il essaiera toujours d’associer ce qu’il perçoit à l’un des deux visages, même si ceux-ci ne sont pas présents (ou qu’il sont présents tous les deux). Pour améliorer le système, d’autres classes peuvent être ajoutées (par exemple une classe ‘autre’, contenant des exemples avec aucun visage, ou des deux visages en même temps).</p>
 </div>
@@ -488,7 +488,7 @@ Une fois qu’une vingtaine d’images ont été prises pour chacun des deux vis
 <p>Le second exemple que nous te donnons a pour but de faire un classifieur capable de dire si un tube est présent sur un sol martien. On distingue donc deux classes: Soit l’image perçue par la caméra contient un échantillon (un tube contenant des poussières de sol martien), soit elle n’en contient pas. Nous appellerons la première classe “Tube”, et la seconde classe “Autre”.</p>
 <p>Pour faire l’entraînement, imprime au préalable l’image ci-dessous. On y voit un tube posé sur un sol martien (le tube est à peu près au centre).</p>
 <a class="reference internal image-reference" href="../../_images/martian-soil-with-tube.jpg"><img alt="../../_images/martian-soil-with-tube.jpg" src="../../_images/martian-soil-with-tube.jpg" style="width: 900px;" /></a>
-<p>Note : Plutôt que l’image de sol martien avec le tube, vous pouvez utiliser directement un objet que vous avez à portée de main, tel qu’un crayon, une boîte, ou autre.</p>
+<p>Note : Plutôt que l’image de sol martien avec le tube, tu peux utiliser directement un objet que tu as à portée de main, tel qu’un crayon, une boîte, ou autre.</p>
 <p>Les étapes sont ensuite les même que précédemment, pour entraîner, tester et exporter le modèle.</p>
 <p>Pour l’entraînement, définis deux classes: ‘Tube’ et ‘Autre’. Pour la classe’ Autre’, ajoute des photos avec la webcam de parties de l’image où seul le sol est présent pour la classe sol, ou des photos de toi devant la caméra. Pour la classe ‘Tube’, prends des photos de l’image imprimée sur lesquelles le tube est visible. Une fois les photos prises pour les deux classes, tu devrais obtenir un jeu de données tel que celui illustré ci-dessous:</p>
 <a class="reference internal image-reference" href="../../_images/TM_5_Tube_Other.jpg"><img alt="../../_images/TM_5_Tube_Other.jpg" src="../../_images/TM_5_Tube_Other.jpg" style="width: 900px;" /></a>
