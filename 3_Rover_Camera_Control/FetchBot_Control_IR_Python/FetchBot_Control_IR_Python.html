@@ -318,8 +318,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reconnaissance-d-image">
-   8.4. Reconnaissance d’image
+  <a class="reference internal nav-link" href="#faire-dire-ce-que-le-modele-reconnait">
+   8.4. Faire dire ce que le modèle reconnaît
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -364,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>Un FetchBot et un laptop/tablette par groupe de 2, avec connexion à Internet</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Prérequis</p></td>
-<td class="text-align:left"><p>1. Connaissances de bases de Python (voir Activité 3 - Reconnaissance d’images avec Python)<br> 2. Avoir pris en main le Raspberry Pi, et savoir s’y connecter avec VNC viewer (voir <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">Raspberry Pi: Prise en main et préparation</span></a>)<br> 3. Avoir construit le FetchBot (voir <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">Activité 4 - Construction du rover</span></a>)<br> 4. Avoir programmé le FetchBot pour le faire se déplacer (voir <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python.html#fetchbot-control-python"><span class="std std-ref">Activité 6 - Contrôle du FetchBot avec Python</span></a>)</p></td>
+<td class="text-align:left"><p>1. Reconnaissance d’images avec Python (voir <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.html#image-recognition-python"><span class="std std-ref">Activité 3 - Reconnaissance d’images avec Python</span></a>)<br> 2. Avoir pris en main le Raspberry Pi, et savoir s’y connecter avec VNC viewer (voir <a class="reference internal" href="../../4_Additional_Resources/Raspberry_Pi/Raspberry_Pi.html#raspberry-pi"><span class="std std-ref">Raspberry Pi: Prise en main et préparation</span></a>)<br> 3. Avoir construit le FetchBot (voir <a class="reference internal" href="../../2_Rover_Building/Rover_Building/Rover_Building.html#rover-building"><span class="std std-ref">Activité 4 - Construction du rover</span></a>)<br> 4. Avoir programmé le FetchBot pour le faire se déplacer (voir <a class="reference internal" href="../../2_Rover_Building/FetchBot_Control_Python/FetchBot_Control_Python.html#fetchbot-control-python"><span class="std std-ref">Activité 6 - Contrôle du FetchBot avec Python</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -409,8 +409,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Il est plus facile d’être deux pour prendre les exemples d’images des trois classes: un pour déplacer le rover dans la zone, et l’autre pour prendre les photos sur la Teachable Machine.</p>
 </div>
 </div>
-<div class="section" id="reconnaissance-d-image">
-<h2><span class="section-number">8.4. </span>Reconnaissance d’image<a class="headerlink" href="#reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="faire-dire-ce-que-le-modele-reconnait">
+<h2><span class="section-number">8.4. </span>Faire dire ce que le modèle reconnaît<a class="headerlink" href="#faire-dire-ce-que-le-modele-reconnait" title="Permalink to this headline">¶</a></h2>
+<p>Tu peux maintenant utiliser le modèle dans Python et faire dire ce qu’il reconnaît. Le principe est le même que celui décrit dans <a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.html#image-recognition-python"><span class="std std-ref">l’activité 3</span></a>. Tu as ici trois classes, donc une troisième condition à ajouter dans le logigramme:</p>
+<a class="reference internal image-reference" href="../../_images/Algorithm_1_ImageRecognition2.jpg"><img alt="../../_images/Algorithm_1_ImageRecognition2.jpg" src="../../_images/Algorithm_1_ImageRecognition2.jpg" style="width: 500px;" /></a>
+<p>Et voici la traduction en langage Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
@@ -439,56 +442,38 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="c1"># Predict image class</span>
     <span class="n">prediction</span><span class="p">,</span> <span class="n">probability</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">model_prediction</span><span class="p">(</span><span class="n">interpreter</span><span class="p">,</span> <span class="n">picture_rgb</span><span class="p">)</span>
     
-    <span class="c1"># If prediction is class 0, class is &#39;Tube&#39;</span>
+    <span class="c1"># If prediction is class 0, class is &#39;Soil&#39;</span>
     <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Tube&#39;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je vois du sol&quot;</span><span class="p">)</span>
         
-    <span class="c1"># If prediction is class 1, class is &#39;Autre&#39;</span>
+    <span class="c1"># If prediction is class 1, class is &#39;Obstacle&#39;</span>
     <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Other&#39;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je vois un obstacle&quot;</span><span class="p">)</span>
         
-        <span class="c1"># If prediction is class 2, class is &#39;Bord&#39;</span>
+        <span class="c1"># If prediction is class 2, class is &#39;Tube&#39;</span>
     <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Bord&#39;&quot;</span><span class="p">)</span>    
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Je reconnais la classe &#39;Other&#39;
-Je reconnais la classe &#39;Other&#39;
-Je reconnais la classe &#39;Forward&#39;
-Je reconnais la classe &#39;Forward&#39;
-Je reconnais la classe &#39;Other&#39;
-Je reconnais la classe &#39;Other&#39;
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">2</span><span class="n">y</span><span class="o">/</span><span class="n">mv3z1v0945b60_l2bzjwpzj80000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_83580</span><span class="o">/</span><span class="mf">618073387.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> 
-<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="c1"># Take image from the camera</span>
-<span class="ne">---&gt; </span><span class="mi">25</span>     <span class="n">picture_rgb</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">take_picture</span><span class="p">(</span><span class="n">camera_object</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> 
-<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="c1"># Predict image class</span>
-
-<span class="nn">~/Projects/Scientotheque/fiches-ia/ai-rover-fr/03_Image_Recognition_Python/myfunctions.py</span> in <span class="ni">take_picture</span><span class="nt">(camera_object, input_image_size)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">def</span> <span class="nf">take_picture</span><span class="p">(</span><span class="n">camera_object</span><span class="p">,</span> <span class="n">input_image_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span><span class="mi">224</span><span class="p">)):</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">return_status</span><span class="p">,</span> <span class="n">picture</span> <span class="o">=</span> <span class="n">camera_object</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">picture_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">picture</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;J&#39;ai trouvé un tube!&quot;</span><span class="p">)</span>    
 </pre></div>
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le fichier <code class="docutils literal notranslate"><span class="pre">model.tflite</span></code> est celui que tu as exporté de la Teachable Machine comme dans l’<a class="reference internal" href="../../1_Image_Recognition/Image_Recognition_Python/Image_Recognition_Python.html#image-recognition-python"><span class="std std-ref">Activité 3 - Reconnaissance d’images avec Python</span></a></p>
+</div>
+<p>Le programme se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">3_Rover_Camera_Control/FetchBot_Control_IR_Python/</span></code> et s’appelle <code class="docutils literal notranslate"><span class="pre">1-predict-image.py</span></code>.</p>
 </div>
 <div class="section" id="controle-du-rover-avec-la-reconnaissance-d-image">
 <h2><span class="section-number">8.5. </span>Contrôle du rover avec la reconnaissance d’image<a class="headerlink" href="#controle-du-rover-avec-la-reconnaissance-d-image" title="Permalink to this headline">¶</a></h2>
+<p>Il ne te reste plus qu’à programmer comment contrôler rover en fonction de que la caméra détecte. Modifie le programme pour</p>
+<ul class="simple">
+<li><p>Faire avancer le rover si la classe détectée est le sol</p></li>
+<li><p>Faire tourner le rover à gauche si la classe détectée est un obstacle.</p></li>
+</ul>
+<p>Quel est le logigramme de ce programme?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Necessary import</span>
@@ -497,6 +482,7 @@ Je reconnais la classe &#39;Other&#39;
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># matplotlib is used to deal with images</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="c1"># PIL is used to deal with images</span>
 <span class="kn">import</span> <span class="nn">time</span> <span class="c1"># time is used for making the computer wait</span>
+<span class="kn">import</span> <span class="nn">motor_control</span>
 
 <span class="c1"># Get camera object</span>
 <span class="n">camera_object</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -517,25 +503,28 @@ Je reconnais la classe &#39;Other&#39;
     <span class="c1"># Predict image class</span>
     <span class="n">prediction</span><span class="p">,</span> <span class="n">probability</span> <span class="o">=</span> <span class="n">myfunctions</span><span class="o">.</span><span class="n">model_prediction</span><span class="p">(</span><span class="n">interpreter</span><span class="p">,</span> <span class="n">picture_rgb</span><span class="p">)</span>
     
-    <span class="c1"># If prediction is class 0, class is &#39;Tube&#39;</span>
+    <span class="c1"># If prediction is class 0, class is &#39;Soil&#39;</span>
     <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Tube&#39;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je vois du sol&quot;</span><span class="p">)</span>
+        <span class="n">motor_control</span><span class="o">.</span><span class="n">turn_left</span><span class="p">(</span><span class="n">speed</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         
-    <span class="c1"># If prediction is class 1, class is &#39;Autre&#39;</span>
+    <span class="c1"># If prediction is class 1, class is &#39;Obstacle&#39;</span>
     <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Other&#39;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je vois un obstacle&quot;</span><span class="p">)</span>
+        <span class="c1"># Turn left</span>
+        <span class="n">motor_control</span><span class="o">.</span><span class="n">turn_left</span><span class="p">(</span><span class="n">speed</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         
-        <span class="c1"># If prediction is class 2, class is &#39;Bord&#39;</span>
+        <span class="c1"># If prediction is class 2, class is &#39;Tube&#39;</span>
     <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je reconnais la classe &#39;Bord&#39;&quot;</span><span class="p">)</span>    
-    
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;J&#39;ai trouvé un tube!&quot;</span><span class="p">)</span>    
 </pre></div>
 </div>
 </div>
 </div>
+<p>Le programme se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">3_Rover_Camera_Control/FetchBot_Control_IR_Python/</span></code> et s’appelle <code class="docutils literal notranslate"><span class="pre">2-predict-image-control.py</span></code>.</p>
 </div>
 </div>
 
