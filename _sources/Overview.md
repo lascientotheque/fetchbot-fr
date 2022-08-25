@@ -1,9 +1,9 @@
 # FetchBot: Rover martien intelligent 
 
-Construis un rover martien avec une carte Raspberry Pi et programme-le avec des techniques d'intelligence artificielle de reconnaissance d'images pour aller rechercher de précieux tubes sur Mars en 2026!
+Construis un rover martien avec une carte Raspberry Pi et programme-le avec des techniques d'intelligence artificielle de reconnaissance d'images pour aller rechercher de précieux tubes sur Mars!
 
 <div align="center">
-<h4>Le rover martien Fetch en 2026 à la recherche des tubes laissés sur mars en 2022 par le rover Perseverance - <a href="https://mars.nasa.gov/resources/24761/fetch-rover-approaching-sample-tubes-artists-concept/">Vue d'artiste</a>:</h4> 
+<h4>Inspiration: Le rover martien Fetch à la recherche des tubes laissés sur mars en 2022 par le rover Perseverance - <a href="https://mars.nasa.gov/resources/24761/fetch-rover-approaching-sample-tubes-artists-concept/">Vue d'artiste</a>:</h4> 
 </div>
 
 <img src="images/fetch-rover.jpg" alt="drawing" width="600"></img>
@@ -16,7 +16,9 @@ Construis un rover martien avec une carte Raspberry Pi et programme-le avec des 
 
 ## Motivations des activités
 
-En 2026, l'Agence Spatiale Européenne (ESA) et la National Aeronautics and Space Administration (NASA) enverront [un rover sur Mars avec pour mission de récuperer des tubes contenant des échantillons de sol martien](https://fr.wikipedia.org/wiki/Mars_Sample_Return#Mission_Sample_Retrieval_Lander_(SRL)). Le rover, qui s'appelle Fetch (qui signifie 'récupérer' en anglais), devra être capable de se déplacer, de retrouver les tubes, et de les récupérer de la façon la plus autonome possible. Pour cela, Fetch utilisera des techniques d'intelligence artificielle, notamment de reconnaissance d'images pour trouver de façon autonome les tubes déposés sur le sol par le rover [Perseverance](https://fr.wikipedia.org/wiki/Exploration_de_Mars_par_Perseverance) en 2022. 
+L'un des défis actuels dans l'exploration martienne est la mission de [retour d'échantillons de sol martien (Mars Sample Return - MSR)](https://fr.wikipedia.org/wiki/Mars_Sample_Return) réalisée conjointement par L'Agence Spatiale Européenne (ESA) et la National Aeronautics and Space Administration (NASA). Les échantillons sont extraits depuis 2021 par le rover [Perseverance](https://fr.wikipedia.org/wiki/Exploration_de_Mars_par_Perseverance), et devront ensuite être ramenés sur Terre. 
+
+Dans les missions martiennes, les rovers doivent être le plus autonome possible dans leurs déplacements. Un moyen d'améliorer la capacité des rovers à se déplacer de façon autonome est l'utilisation de techniques d'intelligence artificielle, notamment la reconnaissance d'images pour s'orienter ou retrouver des objets. 
 
 Les activités proposées ici visent à faire découvrir comment concevoir un système d'intelligence artificielle pour de la reconnaissance d'images, et comment permettre à un rover martien de l'utiliser. 
 
