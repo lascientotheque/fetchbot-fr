@@ -24,6 +24,6 @@ parts:
   - file: 4_Additional_Resources/Raspberry_Pi/Raspberry_Pi
   - file: 4_Additional_Resources/Fetch_Mission_Engineer
   - file: 4_Additional_Resources/Rover_Alternatives
-  - file: 4_Additional_Resources/FAQ
-  - file: 4_Additional_Resources/Troubleshooting
+#  - file: 4_Additional_Resources/FAQ
+#  - file: 4_Additional_Resources/Troubleshooting
 
